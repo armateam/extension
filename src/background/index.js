@@ -5,7 +5,7 @@ import config from './config.json';
 
 class Extension {
     constructor() {
-        this.interval = 5 * 1000;
+        this.interval = 15 * 1000;
 
         this.twitch = new Twitch({
             clientId: config.twitch.clientId
