@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Storage from './lib/storage';
 
 import Online from './components/Online';
 import Offline from './components/Offline';
