@@ -1,0 +1,29 @@
+.block {
+  width: 340px;
+  padding: 10px;
+}
+
+.title {
+  color: #880d10;
+  margin-bottom: 1em;
+  font-weight: 500;
+}
+
+.link {
+  width: 320px;
+  height: 180px;
+  display: block;
+  cursor: pointer;
+}
+
+.link:focus {
+  outline: none;
+}
+
+.preview {
+  opacity: 0.9;
+}
+
+.link:hover .preview {
+  opacity: 1;
+}

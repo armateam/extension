@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "ArmaTeam",
+  "description": "Restez informés de la disponibilité de votre team préférée !",
+
+  "version": "1.0.0",
+
+  "icons": {
+    "96": "images/arma-96.png"
+  },
+
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": {
+      "48": "images/arma-48-gs.png",
+      "96": "images/arma-96-gs.png"
+    },
+    "default_title": "ArmaTeam",
+    "default_popup": "dist/index.html"
+  },
+
+  "permissions": [
+    "notifications"
+  ],
+
+  "background": {
+    "scripts": [
+      "dist/background.js"
+    ]
+  }
+}

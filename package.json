@@ -1,0 +1,36 @@
+{
+  "name": "armateam-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -v --display-error-details --progress --colors",
+    "watch": "yarn run build -- --watch",
+    "start": "web-ext run -s extension/",
+    "clean": "rm -rf extension/dist/",
+    "deploy": "yarn run clean && yarn run build && web-ext build -s extension/"
+  },
+  "author": "Bertrand Marron",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.26.0",
+    "json-loader": "^0.5.4",
+    "web-ext": "^1.7.0",
+    "webpack": "^1.14.0"
+  }
+}
