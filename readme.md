@@ -6,7 +6,7 @@
 
 1. Install Yarn
 2. Run `yarn install`
-3. Run `yarn`
+3. Run `yarn watch`
 
 ## Contributing
 

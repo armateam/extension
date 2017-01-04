@@ -1,4 +1,5 @@
 const path              = require('path');
+const qs                = require('querystring');
 const webpack           = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -36,8 +37,20 @@ module.exports = {
             },
 
             {
-                test: /\.css$/,
-                loader: etp.extract('css?modules&importLoaders=1&localIdentName=[local]_[hash:base64:10]')
+                test: /\.less/,
+                loader: etp.extract([
+                    `css?${qs.stringify({
+                        modules: true,
+                        sourceMap: true,
+                        importLoaders: 1,
+                        localIdentName: '[local]_[hash:base64:10]'
+                    })}`,
+                    'resolve-url',
+                    'postcss',
+                    `less?${qs.stringify({
+                        sourceMap: true
+                    })}`
+                ].join('!'))
             }
         ]
     },
@@ -57,10 +70,17 @@ module.exports = {
         ]
     },
 
+    postcss: [
+        require('postcss-focus')(),
+        require('postcss-cssnext')()
+    ],
+
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': process.env.NODE_ENV
         }),
+
+        new webpack.optimize.OccurrenceOrderPlugin(),
 
         new HtmlWebpackPlugin({
             excludeChunks: [
@@ -80,6 +100,14 @@ module.exports = {
                 minifyURLs: true,
             },
             inject: true
+        }),
+
+        new webpack.optimize.DedupePlugin(),
+
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
         }),
 
         etp

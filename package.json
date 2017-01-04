@@ -30,6 +30,12 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.26.0",
     "json-loader": "^0.5.4",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-focus": "^1.0.0",
+    "postcss-loader": "^1.2.1",
+    "resolve-url-loader": "^1.6.1",
     "web-ext": "^1.7.0",
     "webpack": "^1.14.0"
   }
