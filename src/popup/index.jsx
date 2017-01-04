@@ -19,6 +19,11 @@ class Popup extends React.Component {
             this.state = JSON.parse(localStorage.state);
         }
         catch (Error) {
+            // If the cached data is not a valid JSON,
+            // we ignore it and assume that the channel
+            // is offline, for now.
+            // The status will be requested once the
+            // component is mounted.
         }
     }
 
