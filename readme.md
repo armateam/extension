@@ -2,6 +2,9 @@
 
 > WebExtension that notifies users of the availability of the ArmaTeam Twitch.tv’s channel.
 
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/khcelbgmdklbglgbedjnnnccjfngpded.svg)](https://chrome.google.com/webstore/detail/armateam/khcelbgmdklbglgbedjnnnccjfngpded)
+[![Mozilla Add-on](https://img.shields.io/amo/v/armateam.svg)](https://addons.mozilla.org/en-US/firefox/addon/armateam/)
+
 ## Usage
 
 The extension is compatible with Google Chrome and Mozilla Firefox.
