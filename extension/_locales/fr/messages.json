@@ -1,0 +1,11 @@
+{
+  "extensionName": {
+    "message": "ArmaTeam",
+    "description": "Nom de l’extension"
+  },
+
+  "extensionDescription": {
+    "message": "Restez informés de la disponibilité de votre team préférée !",
+    "description": "Description de l’extension"
+  }
+}
