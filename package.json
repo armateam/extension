@@ -1,6 +1,6 @@
 {
   "name": "armateam-extension",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "WebExtension that notifies users of the availability of the ArmaTeam Twitch.tv’s channel.",
   "main": "index.js",
   "scripts": {
