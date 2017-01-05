@@ -4,7 +4,7 @@ import style from './style.less';
 // ## //
 
 export default class Online extends React.Component {
-    openChannel(url, e) {
+    openChannel(url) {
         chrome.tabs.create({
             url: url
         });
