@@ -8,7 +8,7 @@
     "watch": "yarn run build -- --watch --progress",
     "start": "web-ext run -s extension/",
     "clean": "rm -rf extension/dist/",
-    "deploy": "yarn run clean && yarn run build && web-ext build -s extension/"
+    "deploy": "yarn run clean && NODE_ENV=production yarn run build && web-ext build -s extension/"
   },
   "author": "Bertrand Marron",
   "license": "ISC",
