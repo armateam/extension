@@ -1,3 +1,5 @@
+import cloneDeep from 'lodash.clonedeep';
+
 import Twitch from './twitch';
 import config from './config.json';
 
@@ -36,11 +38,11 @@ class Extension {
         }
     }
 
-    notify() {
+    notify(title) {
         chrome.notifications.create('armateam.online', {
-            title: 'L’ArmaTeam est en ligne \\o/',
             type: 'basic',
             iconUrl: chrome.extension.getURL('images/arma-64.png'),
+            title: title,
             message: this.channel.channel.status
         });
     }
@@ -49,13 +51,17 @@ class Extension {
         return this.twitch
             .getChannel(config.channel)
             .then(channel => {
-                const previous = this.online;
+                const previous = cloneDeep(this.channel);
 
                 this.channel = channel;
                 this.online = !!channel;
 
-                if (this.online && previous !== this.online) {
-                    this.notify();
+                if (this.online && !previous) {
+                    this.notify('L’ArmaTeam est en ligne \\o/');
+                }
+
+                else if (this.online && previous.channel.status !== this.channel.channel.status) {
+                    this.notify('Changement de streamer sur l’ArmaTeam !');
                 }
 
                 chrome.runtime

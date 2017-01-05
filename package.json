@@ -13,6 +13,7 @@
   "author": "Bertrand Marron",
   "license": "ISC",
   "dependencies": {
+    "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
