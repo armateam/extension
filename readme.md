@@ -12,9 +12,10 @@ It can be found on the official stores:
 
 ## Development
 
-1. Install Yarn
-2. Run `yarn install`
-3. Run `yarn watch`
+1. Install Node.js (6+) and Yarn
+2. Run `yarn install` to install all dependencies
+3. Run `yarn watch` to run webpack in watch mode
+4. Run `yarn start` to open Firefox with the extension in debugging mode
 
 ## Contributing
 
