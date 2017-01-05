@@ -69,7 +69,7 @@ class Extension {
 
                 if (this.online) {
                     chrome.browserAction.setTitle({
-                        title: 'ArmaTeam – En Ligne'
+                        title: 'ArmaTeam – En ligne'
                     });
                     chrome.browserAction.setIcon({
                         path: {
@@ -80,7 +80,7 @@ class Extension {
                 }
                 else {
                     chrome.browserAction.setTitle({
-                        title: 'ArmaTeam – Hors Ligne'
+                        title: 'ArmaTeam – Hors-ligne'
                     });
                     chrome.browserAction.setIcon({
                         path: {
