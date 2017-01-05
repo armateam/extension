@@ -4,8 +4,8 @@
   "description": "WebExtension that notifies users of the availability of the ArmaTeam Twitch.tv’s channel.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -v --display-error-details --progress --colors",
-    "watch": "yarn run build -- --watch",
+    "build": "webpack -v --display-error-details --colors",
+    "watch": "yarn run build -- --watch --progress",
     "start": "web-ext run -s extension/",
     "clean": "rm -rf extension/dist/",
     "deploy": "yarn run clean && yarn run build && web-ext build -s extension/"
