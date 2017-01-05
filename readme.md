@@ -8,7 +8,7 @@ The extension is compatible with Google Chrome and Mozilla Firefox.
 
 It can be found on the official stores:
 - Google Chrome: https://chrome.google.com/webstore/detail/armateam/khcelbgmdklbglgbedjnnnccjfngpded
-- Mozilla Firefox: *coming soon*
+- Mozilla Firefox: https://addons.mozilla.org/en-US/firefox/addon/armateam/
 
 ## Development
 
