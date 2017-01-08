@@ -13,10 +13,15 @@
   "author": "Bertrand Marron",
   "license": "ISC",
   "dependencies": {
-    "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.0",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
+    "redux-promise-middleware": "^4.2.0",
+    "redux-thunk": "^2.1.0",
+    "redux-webext": "^1.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
