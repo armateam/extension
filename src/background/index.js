@@ -47,55 +47,50 @@ class Extension {
         });
     }
 
-    poll() {
-        return this.twitch
-            .getChannel(config.channel)
-            .then(channel => {
-                const previous = cloneDeep(this.channel);
+    async poll() {
+        const previous = cloneDeep(this.channel);
+        const channel = await this.twitch.getChannel(config.channel);
 
-                this.channel = channel;
-                this.online = !!channel;
+        this.channel = channel;
+        this.online = !!channel;
 
-                if (this.online && !previous) {
-                    this.notify('L’ArmaTeam est en ligne \\o/');
-                }
+        if (this.online && !previous) {
+            this.notify('L’ArmaTeam est en ligne \\o/');
+        }
+        else if (this.online && previous.channel.status !== this.channel.channel.status) {
+            this.notify('Changement de streamer sur l’ArmaTeam !');
+        }
 
-                else if (this.online && previous.channel.status !== this.channel.channel.status) {
-                    this.notify('Changement de streamer sur l’ArmaTeam !');
-                }
+        chrome.runtime.sendMessage({
+            name: 'armateam.pong',
+            data: {
+                online: this.online,
+                channel: this.channel
+            }
+        });
 
-                chrome.runtime
-                    .sendMessage({
-                        name: 'armateam.pong',
-                        data: {
-                            online: this.online,
-                            channel: this.channel
-                        }
-                    });
-
-                if (this.online) {
-                    chrome.browserAction.setTitle({
-                        title: 'ArmaTeam – En ligne'
-                    });
-                    chrome.browserAction.setIcon({
-                        path: {
-                            48: 'images/arma-48.png',
-                            96: 'images/arma-96.png'
-                        }
-                    });
-                }
-                else {
-                    chrome.browserAction.setTitle({
-                        title: 'ArmaTeam – Hors-ligne'
-                    });
-                    chrome.browserAction.setIcon({
-                        path: {
-                            48: 'images/arma-48-gs.png',
-                            96: 'images/arma-96-gs.png'
-                        }
-                    });
+        if (this.online) {
+            chrome.browserAction.setTitle({
+                title: 'ArmaTeam – En ligne'
+            });
+            chrome.browserAction.setIcon({
+                path: {
+                    48: 'images/arma-48.png',
+                    96: 'images/arma-96.png'
                 }
             });
+        }
+        else {
+            chrome.browserAction.setTitle({
+                title: 'ArmaTeam – Hors-ligne'
+            });
+            chrome.browserAction.setIcon({
+                path: {
+                    48: 'images/arma-48-gs.png',
+                    96: 'images/arma-96-gs.png'
+                }
+            });
+        }
     }
 }
 

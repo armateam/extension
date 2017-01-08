@@ -12,7 +12,11 @@ const etp = new ExtractTextPlugin('[name].css');
 module.exports = {
     entry: {
         popup: './src/popup',
-        background: './src/background',
+
+        background: [
+            'babel-polyfill',
+            './src/background'
+        ],
     },
 
     output: {

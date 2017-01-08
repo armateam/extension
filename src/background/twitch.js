@@ -15,18 +15,20 @@ export default class Twitch {
         }
     }
 
-    request(path, options) {
-        return fetch(`${this.baseUrl}/${path}`, merge({
+    async request(path, options) {
+        const res = await fetch(`${this.baseUrl}/${path}`, merge({
             headers: {
                 'Accept': 'application/vnd.twitchtv.v3+json',
                 'Client-Id': this.options.clientId
            }
-       }, options)).then(res => res.json());
+       }, options));
+
+       return await res.json();
     }
 
-    getChannel(name) {
-        return this
-            .request(`streams/${name}`)
-            .then(res => res.stream);
+    async getChannel(name) {
+        const res = await this.request(`streams/${name}`);
+
+        return res.stream;
     }
 }
