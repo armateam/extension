@@ -58,14 +58,19 @@ export function getChannel() {
                 promise: new Promise(async resolve => {
                     const channel = await twitch.getChannel(config.channel);
 
-                    resolve(channel);
-
                     if (channel) {
+                        const status = channel.channel.status;
+                        if (status.indexOf('[FR] ') === 0) {
+                            channel.channel.status = status.substring(5);
+                        }
+
                         setOnline(channel, getState().channel);
                     }
                     else {
                         setOffline();
                     }
+
+                    resolve(channel);
                 })
             }
         })
