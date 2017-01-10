@@ -13,7 +13,7 @@ async function init() {
 
     ReactDOM.render(
         <Provider store={ store }>
-            <Popup/>
+            <Popup />
         </Provider>,
         document.getElementById('app')
     );
