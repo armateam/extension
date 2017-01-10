@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import { createBackgroundStore } from 'redux-webext';
+import { createBackgroundStore } from '../shared/redux-webext';
 
 import promiseMiddleware from 'redux-promise-middleware';
 import thunkMiddleware from 'redux-thunk';
