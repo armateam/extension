@@ -7,7 +7,56 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // ## //
 
+const production = process.env.NODE_ENV === 'production';
 const etp = new ExtractTextPlugin('[name].css');
+
+let plugins = [
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+
+    new HtmlWebpackPlugin({
+        excludeChunks: [
+            'background'
+        ],
+        template: 'src/popup/index.html',
+        minify: {
+            removeComments: production,
+            collapseWhitespace: production,
+            removeRedundantAttributes: production,
+            useShortDoctype: production,
+            removeEmptyAttributes: production,
+            removeStyleLinkTypeAttributes: production,
+            keepClosingSlash: production,
+            minifyJS: production,
+            minifyCSS: production,
+            minifyURLs: production,
+        },
+        inject: true
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'common'
+    }),
+
+    etp
+];
+
+if (production) {
+    plugins = [
+        ...plugins,
+
+        new webpack.optimize.OccurrenceOrderPlugin(),
+
+        new webpack.optimize.DedupePlugin(),
+
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
+    ];
+}
 
 module.exports = {
     entry: {
@@ -82,43 +131,7 @@ module.exports = {
         require('postcss-cssnext')()
     ],
 
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-        }),
-
-        new webpack.optimize.OccurrenceOrderPlugin(),
-
-        new HtmlWebpackPlugin({
-            excludeChunks: [
-                'background'
-            ],
-            template: 'src/popup/index.html',
-            minify: {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeRedundantAttributes: true,
-                useShortDoctype: true,
-                removeEmptyAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                keepClosingSlash: true,
-                minifyJS: true,
-                minifyCSS: true,
-                minifyURLs: true,
-            },
-            inject: true
-        }),
-
-        new webpack.optimize.DedupePlugin(),
-
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
-
-        etp
-    ],
+    plugins: plugins,
 
     devtool: 'sourcemap'
 };
