@@ -1,0 +1,36 @@
+{
+  "extensionName": {
+    "message": "ArmaTeam",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Stay informed of the availability of your favorite e-sports team!",
+    "description": "Description of the extension"
+  },
+
+
+  "browserActionOnlineTitle": {
+    "message": "ArmaTeam - Online",
+    "description": "Title of the button in the browser action bar when the stream is online"
+  },
+  "browserActionOfflineTitle": {
+    "message": "ArmaTeam - Offline",
+    "description": "Title of the button in the browser action bar when the stream is offline"
+  },
+
+
+  "notificationOnlineTitle": {
+    "message": "ArmaTeam is online \\o/",
+    "description": "Notification title when the stream is online"
+  },
+  "notificationStatusChangeTitle": {
+    "message": "Stream change on ArmaTeam!",
+    "description": "Notification title when the stream is offline"
+  },
+
+
+  "popupOfflineMessage": {
+    "message": "ArmaTeam is offline :(",
+    "description": "Message displayed in the popup when the stream is offline"
+  }
+}
