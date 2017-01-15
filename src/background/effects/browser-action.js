@@ -8,7 +8,7 @@ export default function (store) {
     return watcher(newVal => {
         if (newVal) {
             chrome.browserAction.setTitle({
-                title: 'ArmaTeam – En ligne'
+                title: chrome.i18n.getMessage('browserActionOnlineTitle')
             });
             chrome.browserAction.setIcon({
                 path: {
@@ -20,7 +20,7 @@ export default function (store) {
 
         else {
             chrome.browserAction.setTitle({
-                title: 'ArmaTeam – Hors-ligne'
+                title: chrome.i18n.getMessage('browserActionOfflineTitle')
             });
             chrome.browserAction.setIcon({
                 path: {

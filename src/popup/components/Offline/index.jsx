@@ -24,7 +24,7 @@ export default class Offline extends React.Component {
     render() {
         return (
             <div className={ style.block }>
-                <p className={ style.offline }>L’ArmaTeam est hors-ligne :(</p>
+                <p className={ style.offline }>{ chrome.i18n.getMessage('popupOfflineMessage') }</p>
                 <div>
                     <a className={ style.link } onClick={ this.openLink.bind(this, this.twitter) }>
                         <i className="fa fa-twitter" />

@@ -16,7 +16,7 @@ export default function (store) {
                 chrome.notifications.create('armateam.notification', {
                     type: 'basic',
                     iconUrl: chrome.extension.getURL('images/arma-64.png'),
-                    title: 'L’ArmaTeam est en ligne \\o/',
+                    title: chrome.i18n.getMessage('notificationOnlineTitle'),
                     message: status
                 });
             }
@@ -25,7 +25,7 @@ export default function (store) {
                 chrome.notifications.create('armateam.notification', {
                     type: 'basic',
                     iconUrl: chrome.extension.getURL('images/arma-64.png'),
-                    title: 'Changement de streamer sur l’ArmaTeam !',
+                    title: chrome.i18n.getMessage('notificationStatusChangeTitle'),
                     message: status
                 });
             }
