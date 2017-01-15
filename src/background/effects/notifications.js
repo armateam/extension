@@ -7,12 +7,17 @@ export default function (store) {
 
     return watcher((newVal, oldVal) => {
         if (newVal) {
+            let status = newVal.channel.status;
+            if (status.indexOf('[FR] ') === 0) {
+                status = status.substring(5);
+            }
+
             if (!oldVal) {
                 chrome.notifications.create('armateam.notification', {
                     type: 'basic',
                     iconUrl: chrome.extension.getURL('images/arma-64.png'),
                     title: 'L’ArmaTeam est en ligne \\o/',
-                    message: newVal.channel.status
+                    message: status
                 });
             }
 
@@ -21,7 +26,7 @@ export default function (store) {
                     type: 'basic',
                     iconUrl: chrome.extension.getURL('images/arma-64.png'),
                     title: 'Changement de streamer sur l’ArmaTeam !',
-                    message: newVal.channel.status
+                    message: status
                 });
             }
         }

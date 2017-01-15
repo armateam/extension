@@ -15,16 +15,7 @@ export function getChannel() {
             type: Constants.GET_CHANNEL,
             payload: {
                 promise: new Promise(async resolve => {
-                    const channel = await twitch.getChannel(config.channel);
-
-                    if (channel) {
-                        const status = channel.channel.status;
-                        if (status.indexOf('[FR] ') === 0) {
-                            channel.channel.status = status.substring(5);
-                        }
-                    }
-
-                    resolve(channel);
+                    resolve(await twitch.getChannel(config.channel));
                 })
             }
         })

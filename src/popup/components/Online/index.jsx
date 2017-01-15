@@ -15,10 +15,15 @@ export default class Online extends React.Component {
     render() {
         const { channel } = this.props;
 
+        let status = channel.channel.status;
+        if (status.indexOf('[FR] ') === 0) {
+            status = status.substring(5);
+        }
+
         return (
             <div className={ style.block }>
                 <div className={ style.title }>
-                    { channel.channel.status }
+                    { status }
                 </div>
                 <a className={ style.link } onClick={ this.openChannel.bind(this, channel.channel.url) }>
                     <img className={ style.preview } src={ channel.preview.medium } alt='' />
