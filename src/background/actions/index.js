@@ -14,9 +14,7 @@ export function getChannel() {
         dispatch({
             type: Constants.GET_CHANNEL,
             payload: {
-                promise: new Promise(async resolve => {
-                    resolve(await twitch.getChannel(config.channel));
-                })
+                promise: twitch.getChannel(config.channel)
             }
         })
     }
