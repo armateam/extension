@@ -3,9 +3,34 @@
     "message": "ArmaTeam",
     "description": "Nom de l’extension"
   },
-
   "extensionDescription": {
     "message": "Restez informés de la disponibilité de votre team préférée !",
     "description": "Description de l’extension"
+  },
+
+
+  "browserActionOnlineTitle": {
+    "message": "ArmaTeam - En ligne",
+    "description": "Titre du bouton dans la barre d’actions du navigateur quand le stream est en ligne"
+  },
+  "browserActionOfflineTitle": {
+    "message": "ArmaTeam - Hors-ligne",
+    "description": "Titre du bouton dans la barre d’actions du navigateur quand le stream est hors-ligne"
+  },
+
+
+  "notificationOnlineTitle": {
+    "message": "L’ArmaTeam est en ligne \\o/",
+    "description": "Titre de la notification quand le stream est en ligne"
+  },
+  "notificationStatusChangeTitle": {
+    "message": "Changement de streamer sur l’ArmaTeam !",
+    "description": "Titre de la notification au changement de status du stream"
+  },
+
+
+  "popupOfflineMessage": {
+    "message": "L’ArmaTeam est hors-ligne :(",
+    "description": "Message affiché dans la popup lorsque le stream est hors-ligne"
   }
 }
