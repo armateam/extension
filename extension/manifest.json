@@ -8,12 +8,6 @@
 
   "homepage_url": "https://github.com/armateam/extension",
 
-  "applications": {
-    "gecko": {
-      "id": "extension@armateam.org"
-    }
-  },
-
   "default_locale": "fr",
 
   "icons": {
