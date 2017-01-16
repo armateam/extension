@@ -10,12 +10,10 @@ const twitch = new Twitch({
 });
 
 export function getChannel() {
-    return (dispatch, getState) => {
-        dispatch({
-            type: Constants.GET_CHANNEL,
-            payload: {
-                promise: twitch.getChannel(config.channel)
-            }
-        })
-    }
+    return dispatch => dispatch({
+        type: Constants.GET_CHANNEL,
+        payload: {
+            promise: twitch.getChannel(config.channel)
+        }
+    })
 };

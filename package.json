@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack -v --display-error-details --colors",
     "watch": "yarn run build -- --watch --progress",
+    "lint": "eslint src",
     "start": "web-ext run -s extension/",
     "clean": "rm -rf extension/dist/",
     "deploy": "yarn run clean && NODE_ENV=production yarn run build && web-ext build -s extension/"
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
@@ -34,6 +36,8 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
     "css-loader": "^0.26.1",
+    "eslint": "^3.13.1",
+    "eslint-plugin-react": "^6.9.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.26.0",
     "json-loader": "^0.5.4",
