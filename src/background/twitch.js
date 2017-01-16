@@ -20,10 +20,10 @@ export default class Twitch {
             headers: {
                 'Accept': 'application/vnd.twitchtv.v3+json',
                 'Client-Id': this.options.clientId
-           }
-       }, options));
+            }
+        }, options));
 
-       return await res.json();
+        return await res.json();
     }
 
     async getChannel(name) {
