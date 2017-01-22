@@ -35,5 +35,9 @@
       "dist/common.js",
       "dist/background.js"
     ]
-  }
+  },
+
+  "web_accessible_resources": [
+    "images/*.png"
+  ]
 }
