@@ -22,10 +22,15 @@ export default class Offline extends React.Component {
     }
 
     render() {
+        const logoUrl = chrome.extension.getURL('images/arma-96-gs.png');
+
         return (
             <div className={ style.block }>
+                <div className={ style.logo }>
+                    <img alt='ArmaTeam' src={ logoUrl } />
+                </div>
                 <p className={ style.offline }>{ chrome.i18n.getMessage('popupOfflineMessage') }</p>
-                <div>
+                <div className={ style.links }>
                     <a className={ style.link } onClick={ this.openLink.bind(this, this.twitter) }>
                         <i className="fa fa-twitter" />
                     </a>

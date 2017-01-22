@@ -15,9 +15,9 @@ class Popup extends React.Component {
     render() {
         const { channel } = this.props;
 
-        return channel.channel
-            ? <Online channel={ channel.channel }/>
-            : <Offline/>;
+        return channel.channel ?
+            <Online channel={ channel.channel }/> :
+            <Offline />;
     }
 }
 
