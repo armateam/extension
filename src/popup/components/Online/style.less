@@ -23,6 +23,7 @@
     height: 180px;
     display: block;
     cursor: pointer;
+    position: relative;
 
     &:focus {
         outline: none;
@@ -33,4 +34,18 @@
             opacity: 1;
         }
     }
+}
+
+.viewers {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 5px;
+    font-size: 11px;
+}
+
+.viewerCount {
+    margin-left: 5px;
 }

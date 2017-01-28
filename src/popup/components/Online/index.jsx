@@ -31,6 +31,12 @@ export default class Online extends React.Component {
                 </div>
                 <a className={ style.link } onClick={ this.openChannel.bind(this, channel.channel.url) }>
                     <img alt='' className={ style.preview } src={ channel.preview.medium } />
+                    <div className={ style.viewers }>
+                        <i className="fa fa-user" />
+                        <span className={ style.viewerCount }>
+                            { channel.viewers.toLocaleString() }
+                        </span>
+                    </div>
                 </a>
             </div>
         );
