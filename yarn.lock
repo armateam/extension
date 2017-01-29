@@ -2558,9 +2558,9 @@ html-minifier@^3.2.3:
     relateurl "0.2.x"
     uglify-js "2.7.x"
 
-html-webpack-plugin@^2.26.0:
-  version "2.26.0"
-  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-2.26.0.tgz#ba97c8a66f912b85df80d2aeea65966c8bd9249e"
+html-webpack-plugin@^2.28.0:
+  version "2.28.0"
+  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-2.28.0.tgz#2e7863b57e5fd48fe263303e2ffc934c3064d009"
   dependencies:
     bluebird "^3.4.7"
     html-minifier "^3.2.3"
@@ -4750,13 +4750,13 @@ right-align@^0.1.1:
   dependencies:
     align-text "^0.1.1"
 
-rimraf@2, rimraf@^2.2.8, rimraf@~2.5.1, rimraf@~2.5.4:
+rimraf@2, rimraf@~2.5.1, rimraf@~2.5.4:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.5.4.tgz#96800093cbf1a0c86bd95b4625467535c29dfa04"
   dependencies:
     glob "^7.0.5"
 
-rimraf@~2.4.0:
+rimraf@^2.2.8, rimraf@~2.4.0:
   version "2.4.5"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.4.5.tgz#ee710ce5d93a8fdb856fb5ea8ff0e2d75934b2da"
   dependencies:
