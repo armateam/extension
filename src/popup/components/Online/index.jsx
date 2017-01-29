@@ -5,7 +5,8 @@ import style from './style.less';
 
 export default class Online extends React.Component {
     static propTypes = {
-        channel: PropTypes.object.isRequired
+        channel: PropTypes.object.isRequired,
+        status: PropTypes.string.isRequired
     }
 
     openChannel(url) {
@@ -17,12 +18,7 @@ export default class Online extends React.Component {
     }
 
     render() {
-        const { channel } = this.props;
-
-        let status = channel.channel.status;
-        if (status.indexOf('[FR] ') === 0) {
-            status = status.substring(5);
-        }
+        const { channel, status } = this.props;
 
         return (
             <div className={ style.block }>
