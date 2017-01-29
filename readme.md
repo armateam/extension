@@ -4,11 +4,12 @@
 
 ## Usage
 
-The extension is compatible with Google Chrome and Mozilla Firefox.
+The extension is compatible with Google Chrome, Mozilla Firefox and Opera.
 
 It can be found on the official stores:
 - Google Chrome: https://chrome.google.com/webstore/detail/armateam/khcelbgmdklbglgbedjnnnccjfngpded
 - Mozilla Firefox: https://addons.mozilla.org/en-US/firefox/addon/armateam/
+- Opera: https://addons.opera.com/extensions/details/armateam/
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/khcelbgmdklbglgbedjnnnccjfngpded.svg)](https://chrome.google.com/webstore/detail/armateam/khcelbgmdklbglgbedjnnnccjfngpded)
 [![Mozilla Add-on](https://img.shields.io/amo/v/armateam.svg)](https://addons.mozilla.org/en-US/firefox/addon/armateam/)
