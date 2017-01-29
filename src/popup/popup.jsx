@@ -10,13 +10,14 @@ import Offline from './components/Offline';
 class Popup extends React.Component {
     static propTypes = {
         channel: PropTypes.object.isRequired,
+        status: PropTypes.object.isRequired
     };
 
     render() {
-        const { channel } = this.props;
+        const { channel, status } = this.props;
 
         return channel.channel ?
-            <Online channel={ channel.channel }/> :
+            <Online channel={ channel.channel } status={ status.clean } /> :
             <Offline />;
     }
 }
