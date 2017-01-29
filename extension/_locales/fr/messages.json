@@ -24,7 +24,7 @@
     "description": "Titre de la notification quand le stream est en ligne"
   },
   "notificationStatusChangeTitle": {
-    "message": "Changement de streamer sur l’ArmaTeam !",
+    "message": "Changement de stream sur l’ArmaTeam !",
     "description": "Titre de la notification au changement de status du stream"
   },
 
