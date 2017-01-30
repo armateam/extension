@@ -10,15 +10,16 @@ const initialState = {
 
 export default createReducer(initialState, {
     [Constants.GET_CHANNEL_FULFILLED]: (state, data) => {
-        console.log(data);
-        const status = data.payload.channel.status;
+        if (data.payload) {
+            const status = data.payload.channel.status;
 
-        if (status.indexOf('[FR] ') === 0) {
-            return {
-                ...state,
-                original: status,
-                clean: status.substring(5)
-            };
+            if (status.indexOf('[FR] ') === 0) {
+                return {
+                    ...state,
+                    original: status,
+                    clean: status.substring(5)
+                };
+            }
         }
 
         return state;
