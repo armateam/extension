@@ -6,7 +6,8 @@ import style from './style.less';
 export default class Online extends React.Component {
     static propTypes = {
         channel: PropTypes.object.isRequired,
-        status: PropTypes.string.isRequired
+        status: PropTypes.string.isRequired,
+        refreshing: PropTypes.bool.isRequired
     }
 
     openChannel(url) {
@@ -18,7 +19,7 @@ export default class Online extends React.Component {
     }
 
     render() {
-        const { channel, status } = this.props;
+        const { channel, refreshing, status } = this.props;
 
         return (
             <div className={ style.block }>
@@ -27,6 +28,11 @@ export default class Online extends React.Component {
                 </div>
                 <a className={ style.link } onClick={ this.openChannel.bind(this, channel.channel.url) }>
                     <img alt='' className={ style.preview } src={ channel.preview.medium } />
+                    { refreshing &&
+                        <div className={ style.refreshing }>
+                            <i className="fa fa-refresh fa-spin" />
+                        </div>
+                    }
                     <div className={ style.viewers }>
                         <i className="fa fa-user" />
                         <span className={ style.viewerCount }>
