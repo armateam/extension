@@ -17,7 +17,11 @@ class Popup extends React.Component {
         const { channel, status } = this.props;
 
         return channel.channel ?
-            <Online channel={ channel.channel } status={ status.clean } /> :
+            <Online
+                channel={ channel.channel }
+                refreshing={ channel.isFetching }
+                status={ status.clean }
+            /> :
             <Offline />;
     }
 }
