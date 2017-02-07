@@ -6,9 +6,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // ## //
 
 const production = process.env.NODE_ENV === 'production';
-const etp = new ExtractTextPlugin({
-    filename: '[name].css'
-});
 
 let plugins = [
     new webpack.DefinePlugin({
@@ -43,7 +40,9 @@ let plugins = [
         name: 'common'
     }),
 
-    etp
+    new ExtractTextPlugin({
+        filename: 'style/[name].css'
+    })
 ];
 
 if (production) {
@@ -58,6 +57,7 @@ const config = {
     entry: {
         popup: [
             'babel-polyfill',
+            'font-awesome/css/font-awesome.css',
             './src/popup'
         ],
 
@@ -69,7 +69,8 @@ const config = {
 
     output: {
         path: 'extension/dist',
-        filename: '[name].js'
+        filename: 'scripts/[name].js',
+        publicPath: '/dist/'
     },
 
     module: {
@@ -83,8 +84,40 @@ const config = {
             },
 
             {
+                test: /\.(eot|svg|ttf|woff2?)(\?.*$|$)/,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[ext]'
+                }
+            },
+
+            {
+                test: /\.css/,
+                loader: ExtractTextPlugin.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: !production
+                            }
+                        },
+
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: () => ([
+                                    require('postcss-focus')(),
+                                    require('postcss-cssnext')()
+                                ])
+                            }
+                        }
+                    ]
+                })
+            },
+
+            {
                 test: /\.less/,
-                loader: etp.extract({
+                loader: ExtractTextPlugin.extract({
                     use: [
                         {
                             loader: 'css-loader',
