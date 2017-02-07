@@ -94,7 +94,8 @@ module.exports = {
                                 modules: true,
                                 sourceMap: true,
                                 importLoaders: 1,
-                                localIdentName: '[local]_[hash:base64:10]'
+                                localIdentName: '[local]_[hash:base64:10]',
+                                camelCase: true
                             }
                         },
 

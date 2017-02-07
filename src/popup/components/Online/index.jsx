@@ -28,16 +28,26 @@ export default class Online extends React.Component {
                 </div>
                 <a className={ style.link } onClick={ this.openChannel.bind(this, channel.channel.url) }>
                     <img alt='' className={ style.preview } src={ channel.preview.medium } />
-                    { refreshing &&
-                        <div className={ style.refreshing }>
-                            <i className="fa fa-refresh fa-spin" />
+                    <div className={ style.leftWidgets }>
+                        { refreshing &&
+                            <div className={ style.widget }>
+                                <i className="fa fa-refresh fa-spin" />
+                            </div>
+                        }
+                    </div>
+                    <div className={ style.rightWidgets }>
+                        <div className={ style.widget }>
+                            <i className="fa fa-desktop" />
+                            <span className={ style.widgetLabel }>
+                                { channel.video_height }p
+                            </span>
                         </div>
-                    }
-                    <div className={ style.viewers }>
-                        <i className="fa fa-user" />
-                        <span className={ style.viewerCount }>
-                            { channel.viewers.toLocaleString() }
-                        </span>
+                        <div className={ style.widget }>
+                            <i className="fa fa-user" />
+                            <span className={ style.widgetLabel }>
+                                { channel.viewers.toLocaleString() }
+                            </span>
+                        </div>
                     </div>
                 </a>
             </div>
