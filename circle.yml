@@ -7,6 +7,11 @@ machine:
     version: 6
 
 
+general:
+  artifacts:
+    - web-ext-artifacts
+
+
 dependencies:
   pre:
     - |
