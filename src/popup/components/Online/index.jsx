@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import style from './style.less';
 
+import Widget from './components/Widget';
+
 // ## //
 
 export default class Online extends React.Component {
@@ -28,16 +30,12 @@ export default class Online extends React.Component {
                 </div>
                 <a className={ style.link } onClick={ this.openChannel.bind(this, channel.channel.url) }>
                     <img alt='' className={ style.preview } src={ channel.preview.medium } />
-                    { refreshing &&
-                        <div className={ style.refreshing }>
-                            <i className="fa fa-refresh fa-spin" />
-                        </div>
-                    }
-                    <div className={ style.viewers }>
-                        <i className="fa fa-user" />
-                        <span className={ style.viewerCount }>
-                            { channel.viewers.toLocaleString() }
-                        </span>
+                    <div className={ style.leftWidgets }>
+                        { refreshing && <Widget icon='refresh' spin /> }
+                    </div>
+                    <div className={ style.rightWidgets }>
+                        <Widget icon='desktop' label={ `${channel.video_height}p` } />
+                        <Widget icon='user' label={ channel.viewers.toLocaleString() } />
                     </div>
                 </a>
             </div>
