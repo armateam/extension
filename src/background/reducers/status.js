@@ -20,6 +20,12 @@ export default createReducer(initialState, {
                     clean: status.substring(5)
                 };
             }
+
+            return {
+                ...state,
+                original: status,
+                clean: status
+            };
         }
 
         return state;
