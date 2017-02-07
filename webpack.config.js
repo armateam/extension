@@ -1,5 +1,3 @@
-const path              = require('path');
-const qs                = require('querystring');
 const webpack           = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,7 +6,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // ## //
 
 const production = process.env.NODE_ENV === 'production';
-const etp = new ExtractTextPlugin('[name].css');
+const etp = new ExtractTextPlugin({
+    filename: '[name].css'
+});
 
 let plugins = [
     new webpack.DefinePlugin({
@@ -46,14 +46,12 @@ if (production) {
     plugins = [
         ...plugins,
 
-        new webpack.optimize.OccurrenceOrderPlugin(),
-
-        new webpack.optimize.DedupePlugin(),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        }),
 
         new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
+            sourceMap: true
         })
     ];
 }
@@ -77,59 +75,63 @@ module.exports = {
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
-                loaders: [
-                    'babel'
-                ]
-            },
-
-            {
-                test: /\.json$/,
-                loaders: [
-                    'json'
-                ]
+                loader: 'babel-loader',
+                options: {
+                    cacheDirectory: true
+                }
             },
 
             {
                 test: /\.less/,
-                loader: etp.extract([
-                    `css?${qs.stringify({
-                        modules: true,
-                        sourceMap: true,
-                        importLoaders: 1,
-                        localIdentName: '[local]_[hash:base64:10]'
-                    })}`,
-                    'resolve-url',
-                    'postcss',
-                    `less?${qs.stringify({
-                        sourceMap: true
-                    })}`
-                ].join('!'))
+                loader: etp.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                sourceMap: true,
+                                importLoaders: 1,
+                                localIdentName: '[local]_[hash:base64:10]'
+                            }
+                        },
+
+                        'resolve-url-loader',
+
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: () => ([
+                                    require('postcss-focus')(),
+                                    require('postcss-cssnext')()
+                                ])
+                            }
+                        },
+
+                        {
+                            loader: 'less-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
+                })
             }
         ]
     },
 
     resolve: {
         extensions: [
-            '',
             '.js',
             '.jsx'
         ],
-        root: [
-            path.resolve(__dirname)
-        ],
-        modulesDirectories: [
+        modules: [
             'src',
             'node_modules'
         ]
     },
-
-    postcss: [
-        require('postcss-focus')(),
-        require('postcss-cssnext')()
-    ],
 
     plugins: plugins,
 
