@@ -16,7 +16,7 @@ export default function (store) {
                 });
             }
 
-            else if (newVal.channel.status !== oldVal.channel.status) {
+            else if (newVal !== oldVal) {
                 chrome.notifications.create('armateam.notification', {
                     type: 'basic',
                     iconUrl: chrome.extension.getURL('images/arma-64.png'),
