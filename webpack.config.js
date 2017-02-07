@@ -15,6 +15,10 @@ let plugins = [
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
 
+    new webpack.LoaderOptionsPlugin({
+        minimize: production
+    }),
+
     new HtmlWebpackPlugin({
         excludeChunks: [
             'background'
@@ -46,17 +50,11 @@ if (production) {
     plugins = [
         ...plugins,
 
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
-        }),
-
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true
-        })
+        new webpack.optimize.UglifyJsPlugin()
     ];
 }
 
-module.exports = {
+const config = {
     entry: {
         popup: [
             'babel-polyfill',
@@ -92,7 +90,7 @@ module.exports = {
                             loader: 'css-loader',
                             options: {
                                 modules: true,
-                                sourceMap: true,
+                                sourceMap: !production,
                                 importLoaders: 1,
                                 localIdentName: '[local]_[hash:base64:10]',
                                 camelCase: true
@@ -114,7 +112,7 @@ module.exports = {
                         {
                             loader: 'less-loader',
                             options: {
-                                sourceMap: true
+                                sourceMap: !production
                             }
                         }
                     ]
@@ -134,7 +132,13 @@ module.exports = {
         ]
     },
 
-    plugins: plugins,
-
-    devtool: 'sourcemap'
+    plugins: plugins
 };
+
+if (!production) {
+    config.devtool = 'sourcemap';
+}
+
+// ## //
+
+module.exports = config;
