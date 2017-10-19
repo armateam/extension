@@ -4,6 +4,9 @@ import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+
+
 const production = process.env.NODE_ENV === 'production';
 
 let plugins = [
@@ -50,20 +53,27 @@ if (production) {
         ...plugins,
 
         new webpack.optimize.ModuleConcatenationPlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin(),
+
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: false,
+            reportFilename: path.resolve('reports/bundles.html'),
+            defaultSizes: 'gzip'
+        })
     ];
 }
 
 const config = {
     entry: {
         popup: [
-            'babel-polyfill',
+            'regenerator-runtime/runtime',
             'font-awesome/css/font-awesome.css',
             './src/popup'
         ],
 
         background: [
-            'babel-polyfill',
+            'regenerator-runtime/runtime',
             './src/background'
         ],
     },
@@ -172,7 +182,7 @@ const config = {
         ]
     },
 
-    plugins: plugins
+    plugins
 };
 
 if (!production) {
