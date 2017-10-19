@@ -12,7 +12,8 @@ let plugins = [
     }),
 
     new webpack.LoaderOptionsPlugin({
-        minimize: production
+        minimize: production,
+        debug: false
     }),
 
     new HtmlWebpackPlugin({
@@ -48,6 +49,7 @@ if (production) {
     plugins = [
         ...plugins,
 
+        new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.UglifyJsPlugin()
     ];
 }
