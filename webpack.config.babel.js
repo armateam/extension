@@ -1,9 +1,8 @@
-const webpack           = require('webpack');
+import path from 'path'
+import webpack from 'webpack'
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-// ## //
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -68,7 +67,7 @@ const config = {
     },
 
     output: {
-        path: 'extension/dist',
+        path: path.resolve('extension/dist'),
         filename: 'scripts/[name].js',
         publicPath: '/dist/'
     },
@@ -98,17 +97,22 @@ const config = {
                         {
                             loader: 'css-loader',
                             options: {
-                                sourceMap: !production
-                            }
-                        },
-
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: () => ([
-                                    require('postcss-focus')(),
-                                    require('postcss-cssnext')()
-                                ])
+                                sourceMap: !production,
+                                minimize: {
+                                    autoprefixer: {
+                                        add: true,
+                                        remove: true,
+                                        browsers: ['last 2 versions']
+                                    },
+                                    discardComments: {
+                                        removeAll: true
+                                    },
+                                    discardUnused: false,
+                                    mergeIdents: false,
+                                    reduceIdents: false,
+                                    safe: true,
+                                    sourcemap: !production
+                                }
                             }
                         }
                     ]
@@ -126,21 +130,26 @@ const config = {
                                 sourceMap: !production,
                                 importLoaders: 1,
                                 localIdentName: '[local]_[hash:base64:10]',
-                                camelCase: true
+                                camelCase: true,
+                                minimize: {
+                                    autoprefixer: {
+                                        add: true,
+                                        remove: true,
+                                        browsers: ['last 2 versions']
+                                    },
+                                    discardComments: {
+                                        removeAll: true
+                                    },
+                                    discardUnused: false,
+                                    mergeIdents: false,
+                                    reduceIdents: false,
+                                    safe: true,
+                                    sourcemap: !production
+                                }
                             }
                         },
 
                         'resolve-url-loader',
-
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: () => ([
-                                    require('postcss-focus')(),
-                                    require('postcss-cssnext')()
-                                ])
-                            }
-                        },
 
                         {
                             loader: 'less-loader',
@@ -158,10 +167,6 @@ const config = {
         extensions: [
             '.js',
             '.jsx'
-        ],
-        modules: [
-            'src',
-            'node_modules'
         ]
     },
 

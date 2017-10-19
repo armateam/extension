@@ -1,7 +1,3 @@
-import merge from 'lodash.merge';
-
-// ## //
-
 export default class Twitch {
     constructor(options) {
         this.baseUrl = 'https://api.twitch.tv/kraken';
@@ -15,13 +11,13 @@ export default class Twitch {
         }
     }
 
-    async request(path, options) {
-        const res = await fetch(`${this.baseUrl}/${path}`, merge({
+    async request(path) {
+        const res = await fetch(`${this.baseUrl}/${path}`, {
             headers: {
                 'Accept': 'application/vnd.twitchtv.v3+json',
                 'Client-Id': this.options.clientId
             }
-        }, options));
+        });
 
         return await res.json();
     }
