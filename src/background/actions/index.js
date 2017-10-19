@@ -1,19 +1,19 @@
-import Constants from '../../constants';
+import Constants from '../../constants'
 
-import config from '../config.json';
-import Twitch from '../twitch';
+import config from '../config.json'
+import Twitch from '../twitch'
 
 // ## //
 
 const twitch = new Twitch({
-    clientId: config.twitch.clientId
-});
+  clientId: config.twitch.clientId
+})
 
 export function getChannel() {
-    return dispatch => dispatch({
-        type: Constants.GET_CHANNEL,
-        payload: {
-            promise: twitch.getChannel(config.channel)
-        }
-    })
+  return dispatch => dispatch({
+    type: Constants.GET_CHANNEL,
+    payload: {
+      promise: twitch.getChannel(config.channel)
+    }
+  })
 };
