@@ -1,9 +1,10 @@
-const webpack           = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-// ## //
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -13,7 +14,8 @@ let plugins = [
     }),
 
     new webpack.LoaderOptionsPlugin({
-        minimize: production
+        minimize: production,
+        debug: false
     }),
 
     new HtmlWebpackPlugin({
@@ -49,26 +51,34 @@ if (production) {
     plugins = [
         ...plugins,
 
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        new webpack.optimize.UglifyJsPlugin(),
+
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: false,
+            reportFilename: path.resolve('reports/bundles.html'),
+            defaultSizes: 'gzip'
+        })
     ];
 }
 
 const config = {
     entry: {
         popup: [
-            'babel-polyfill',
+            'regenerator-runtime/runtime',
             'font-awesome/css/font-awesome.css',
             './src/popup'
         ],
 
         background: [
-            'babel-polyfill',
+            'regenerator-runtime/runtime',
             './src/background'
         ],
     },
 
     output: {
-        path: 'extension/dist',
+        path: path.resolve('extension/dist'),
         filename: 'scripts/[name].js',
         publicPath: '/dist/'
     },
@@ -98,17 +108,22 @@ const config = {
                         {
                             loader: 'css-loader',
                             options: {
-                                sourceMap: !production
-                            }
-                        },
-
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: () => ([
-                                    require('postcss-focus')(),
-                                    require('postcss-cssnext')()
-                                ])
+                                sourceMap: !production,
+                                minimize: {
+                                    autoprefixer: {
+                                        add: true,
+                                        remove: true,
+                                        browsers: ['last 2 versions']
+                                    },
+                                    discardComments: {
+                                        removeAll: true
+                                    },
+                                    discardUnused: false,
+                                    mergeIdents: false,
+                                    reduceIdents: false,
+                                    safe: true,
+                                    sourcemap: !production
+                                }
                             }
                         }
                     ]
@@ -126,21 +141,26 @@ const config = {
                                 sourceMap: !production,
                                 importLoaders: 1,
                                 localIdentName: '[local]_[hash:base64:10]',
-                                camelCase: true
+                                camelCase: true,
+                                minimize: {
+                                    autoprefixer: {
+                                        add: true,
+                                        remove: true,
+                                        browsers: ['last 2 versions']
+                                    },
+                                    discardComments: {
+                                        removeAll: true
+                                    },
+                                    discardUnused: false,
+                                    mergeIdents: false,
+                                    reduceIdents: false,
+                                    safe: true,
+                                    sourcemap: !production
+                                }
                             }
                         },
 
                         'resolve-url-loader',
-
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: () => ([
-                                    require('postcss-focus')(),
-                                    require('postcss-cssnext')()
-                                ])
-                            }
-                        },
 
                         {
                             loader: 'less-loader',
@@ -158,14 +178,10 @@ const config = {
         extensions: [
             '.js',
             '.jsx'
-        ],
-        modules: [
-            'src',
-            'node_modules'
         ]
     },
 
-    plugins: plugins
+    plugins
 };
 
 if (!production) {
