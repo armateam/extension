@@ -17,7 +17,7 @@ It can be found on the official stores:
 
 ## Development
 
-1. Install Node.js (6+) and Yarn
+1. Install Node.js (8+) and Yarn
 2. Run `yarn` to install all dependencies
 3. Run `yarn dev` to run webpack in watch mode
 4. Run `yarn start` to open Firefox with the extension in debugging mode
