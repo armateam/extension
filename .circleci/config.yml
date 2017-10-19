@@ -84,8 +84,8 @@ jobs:
           command: yarn build
 
       - store_artifacts:
-          name: Store build bundles
-          path: extension/
+          name: Store dist bundles
+          path: extension/dist/
 
       - persist_to_workspace:
           root: *workspace_root
