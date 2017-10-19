@@ -1,11 +1,10 @@
-import path from 'path'
-import webpack from 'webpack'
+const path = require('path')
+const webpack = require('webpack')
 
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const production = process.env.NODE_ENV === 'production';
 

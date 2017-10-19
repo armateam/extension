@@ -2,6 +2,7 @@
   "presets": [
     ["env", {
       "useBuiltIns": false,
+      "modules": false,
       "loose": true
     }],
     "stage-1",
