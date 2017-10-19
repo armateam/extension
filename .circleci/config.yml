@@ -1,0 +1,155 @@
+version: 2
+
+defaults:
+  workspace_root: &workspace_root
+    ~/extension
+
+  container: &default_container
+    working_directory: *workspace_root
+    docker:
+      - image: circleci/node:latest
+
+  filters: &default_filters
+    tags:
+      only: '/v[0-9]+(\.[0-9]+)*/'
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+  restore_node_modules: &restore_node_modules
+    restore_cache:
+      name: Restore node_modules cache
+      keys:
+        - v1-armateam-extension-node-{{ checksum "yarn.lock" }}
+        - v1-armateam-extension-node-
+
+jobs:
+  install:
+    <<: *default_container
+    steps:
+      - checkout
+
+      - restore_cache:
+          name: Restore yarn cache
+          keys:
+            - v1-armateam-extension-yarn-{{ checksum "yarn.lock" }}
+            - v1-armateam-extension-yarn-
+
+      - *restore_node_modules
+
+      - run:
+          name: Install dependencies
+          command: yarn
+
+      - save_cache:
+          name: Save yarn cache
+          key: v1-armateam-extension-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn/
+
+      - save_cache:
+          name: Save node_modules cache
+          key: v1-armateam-extension-node-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules/
+
+      - run:
+          name: Remove node_modules to cleanup workspace
+          command: rm -r node_modules/
+
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - ./
+
+  lint:
+    <<: *default_container
+    steps:
+      - *attach_workspace
+      - *restore_node_modules
+
+      - run:
+          name: Lint JavaScript
+          command: yarn lint
+
+  build:
+    <<: *default_container
+    steps:
+      - *attach_workspace
+      - *restore_node_modules
+
+      - run:
+          name: Build output bundles
+          command: yarn build
+
+      - store_artifacts:
+          name: Store build bundles
+          path: extension/
+
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - extension/
+
+  package:
+    <<: *default_container
+    steps:
+      - *attach_workspace
+      - *restore_node_modules
+
+      - run:
+          name: Package extension
+          command: yarn deploy
+
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - web-ext-artifacts/
+
+  deploy:
+    working_directory: *workspace_root
+    docker:
+      - image: circleci/golang:latest
+    steps:
+      - *attach_workspace
+
+      - run:
+          name: Install ghr
+          command: go get github.com/tcnksm/ghr
+
+      - deploy:
+          name: Upload package to GitHub release
+          command: ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace $CIRCLE_TAG web-ext-artifacts/
+
+workflows:
+  version: 2
+
+  build_test_deploy:
+    jobs:
+      - install:
+          filters: *default_filters
+
+      - lint:
+          requires:
+            - install
+          filters: *default_filters
+
+      - build:
+          requires:
+            - install
+          filters: *default_filters
+
+      - package:
+          requires:
+            - build
+          filters: *default_filters
+
+      - deploy:
+          requires:
+            - lint
+            - package
+          filters:
+            <<: *default_filters
+            branches:
+              ignore: '/.*/'
