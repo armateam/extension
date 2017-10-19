@@ -18,8 +18,8 @@ It can be found on the official stores:
 ## Development
 
 1. Install Node.js (6+) and Yarn
-2. Run `yarn install` to install all dependencies
-3. Run `yarn watch` to run webpack in watch mode
+2. Run `yarn` to install all dependencies
+3. Run `yarn dev` to run webpack in watch mode
 4. Run `yarn start` to open Firefox with the extension in debugging mode
 
 ## Release
@@ -27,7 +27,7 @@ It can be found on the official stores:
 In order to release a new version, please follow the following guide.
 
 1. Update package.json and manifest.json `version` fields to the latest version and publish a new tag.
-2. Run `yarn deploy` to build the output package.
+2. Run `yarn build && yarn deploy` to build the output package.
 3. Upload the output package from the `web-ext-artifacts/` directory to the various stores:
   - Google Chrome: https://chrome.google.com/webstore/developer/edit/khcelbgmdklbglgbedjnnnccjfngpded
   - Mozilla Firefox: https://addons.mozilla.org/en-US/developers/addon/armateam/edit
