@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './style.less'
 
 // ## //
 
@@ -19,11 +18,25 @@ export default class Widget extends React.Component {
       }
 
       return (
-        <div className={style.widget}>
+        <div>
           <i className={iconClass} />
-          { label && <span className={style.label}>
-            { label }
-          </span> }
+          {label && <span>{label}</span>}
+
+          <style jsx>{`
+            div {
+              display: inline-block;
+              background-color: rgba(0, 0, 0, 0.7);
+              color: white;
+              padding: 3px 7px;
+              font-size: 11px;
+              border-radius: 10px;
+              margin-left: 4px;
+            }
+
+            span {
+              margin-left: 5px;
+            }
+          `}</style>
         </div>
       )
     }

@@ -128,48 +128,6 @@ const config = {
             }
           ]
         })
-      },
-
-      {
-        test: /\.less/,
-        loader: ExtractTextPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                sourceMap: !production,
-                importLoaders: 1,
-                localIdentName: '[local]_[hash:base64:10]',
-                camelCase: true,
-                minimize: {
-                  autoprefixer: {
-                    add: true,
-                    remove: true,
-                    browsers: ['last 2 versions']
-                  },
-                  discardComments: {
-                    removeAll: true
-                  },
-                  discardUnused: false,
-                  mergeIdents: false,
-                  reduceIdents: false,
-                  safe: true,
-                  sourcemap: !production
-                }
-              }
-            },
-
-            'resolve-url-loader',
-
-            {
-              loader: 'less-loader',
-              options: {
-                sourceMap: !production
-              }
-            }
-          ]
-        })
       }
     ]
   },

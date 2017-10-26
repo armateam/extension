@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createUIStore } from 'redux-webext'
 
-import Popup from './popup'
+import Popup from './components/popup'
 
 // ## //
 
