@@ -54,7 +54,7 @@
     "styled-jsx": "^2.1.2",
     "styled-jsx-plugin-sass": "^0.2.0",
     "web-ext": "^2.2.2",
-    "webpack": "^3.8.1",
+    "webpack": "^3.9.0",
     "webpack-bundle-analyzer": "^2.9.0"
   },
   "repository": "https://github.com/armateam/extension"
