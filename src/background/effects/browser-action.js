@@ -12,8 +12,8 @@ export default function (store) {
       })
       chrome.browserAction.setIcon({
         path: {
-          48: 'images/arma-48.png',
-          96: 'images/arma-96.png'
+          48: '/images/arma-48.png',
+          96: '/images/arma-96.png'
         }
       })
     } else {
@@ -22,8 +22,8 @@ export default function (store) {
       })
       chrome.browserAction.setIcon({
         path: {
-          48: 'images/arma-48-gs.png',
-          96: 'images/arma-96-gs.png'
+          48: '/images/arma-48-gs.png',
+          96: '/images/arma-96-gs.png'
         }
       })
     }
