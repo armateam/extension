@@ -3,41 +3,51 @@ import PropTypes from 'prop-types'
 
 // ## //
 
-export default class Widget extends React.Component {
-    static propTypes = {
-      icon: PropTypes.string.isRequired,
-      label: PropTypes.string,
-      spin: PropTypes.bool
-    }
+const Widget = ({ label, icon, spin }) => (
+  <div className={spin && 'spin'}>
+    {icon}
+    {label && <span>{label}</span>}
 
-    render() {
-      const { icon, label, spin } = this.props
-      let iconClass = `fa fa-${icon}`
-      if (spin) {
-        iconClass = `${iconClass} fa-spin`
+    <style jsx>{`
+      @keyframes icon-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(359deg);
+        }
       }
 
-      return (
-        <div>
-          <i className={iconClass} />
-          {label && <span>{label}</span>}
+      div {
+        display: inline-block;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 3px 7px;
+        font-size: 11px;
+        border-radius: 10px;
+        margin-left: 4px;
 
-          <style jsx>{`
-            div {
-              display: inline-block;
-              background-color: rgba(0, 0, 0, 0.7);
-              color: white;
-              padding: 3px 7px;
-              font-size: 11px;
-              border-radius: 10px;
-              margin-left: 4px;
-            }
+        & :global(svg) {
+          font-size: 12px;
+          vertical-align: -2px !important;
+        }
+      }
 
-            span {
-              margin-left: 5px;
-            }
-          `}</style>
-        </div>
-      )
-    }
+      .spin :global(svg) {
+        animation: icon-spin 2s infinite linear;
+      }
+
+      span {
+        margin-left: 5px;
+      }
+    `}</style>
+  </div>
+)
+
+Widget.propTypes = {
+  icon: PropTypes.node.isRequired,
+  label: PropTypes.string,
+  spin: PropTypes.bool
 }
+
+export default Widget
