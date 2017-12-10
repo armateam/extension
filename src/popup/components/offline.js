@@ -1,5 +1,10 @@
 import React from 'react'
 
+import TwitterIcon from 'react-icons/lib/fa/twitter'
+import TwitchIcon from 'react-icons/lib/fa/twitch'
+import FacebookIcon from 'react-icons/lib/fa/facebook'
+import WebsiteIcon from 'react-icons/lib/fa/globe'
+
 // ## //
 
 export default class Offline extends React.Component {
@@ -34,16 +39,16 @@ export default class Offline extends React.Component {
 
           <div className='links'>
             <a onClick={() => this.openLink(this.twitter)}>
-              <i className='fa fa-twitter' />
+              <TwitterIcon />
             </a>
             <a onClick={() => this.openLink(this.twitch)}>
-              <i className='fa fa-twitch' />
+              <TwitchIcon />
             </a>
             <a onClick={() => this.openLink(this.facebook)}>
-              <i className='fa fa-facebook' />
+              <FacebookIcon />
             </a>
             <a onClick={() => this.openLink(this.website)}>
-              <i className='fa fa-globe' />
+              <WebsiteIcon />
             </a>
           </div>
         </div>

@@ -1,6 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import RefreshIcon from 'react-icons/lib/fa/refresh'
+import DesktopIcon from 'react-icons/lib/fa/desktop'
+import UserIcon from 'react-icons/lib/fa/user'
+
 import Widget from './widget'
 
 // ## //
@@ -29,11 +33,11 @@ export default class Online extends React.Component {
           <a onClick={() => this.openChannel(channel.channel.url)}>
             <img alt='' src={channel.preview.medium} />
             <div className='left'>
-              {refreshing && <Widget icon='refresh' spin />}
+              {refreshing && <Widget icon={<RefreshIcon />} spin />}
             </div>
             <div className='right'>
-              <Widget icon='desktop' label={`${channel.video_height}p`} />
-              <Widget icon='user' label={channel.viewers.toLocaleString()} />
+              <Widget icon={<DesktopIcon />} label={`${channel.video_height}p`} />
+              <Widget icon={<UserIcon />} label={channel.viewers.toLocaleString()} />
             </div>
           </a>
 

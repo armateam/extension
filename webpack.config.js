@@ -89,7 +89,6 @@ const config = {
   entry: {
     popup: [
       'regenerator-runtime/runtime',
-      'font-awesome/css/font-awesome.css',
       './src/popup'
     ],
 
@@ -113,43 +112,6 @@ const config = {
         options: {
           cacheDirectory: true
         }
-      },
-
-      {
-        test: /\.(eot|svg|ttf|woff2?)(\?.*$|$)/,
-        loader: 'file-loader',
-        options: {
-          name: 'fonts/[name].[ext]'
-        }
-      },
-
-      {
-        test: /\.css/,
-        loader: ExtractTextPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: !production,
-                minimize: {
-                  autoprefixer: {
-                    add: true,
-                    remove: true,
-                    browsers: ['last 2 versions']
-                  },
-                  discardComments: {
-                    removeAll: true
-                  },
-                  discardUnused: false,
-                  mergeIdents: false,
-                  reduceIdents: false,
-                  safe: true,
-                  sourcemap: !production
-                }
-              }
-            }
-          ]
-        })
       }
     ]
   },
