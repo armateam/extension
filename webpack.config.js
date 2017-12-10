@@ -23,6 +23,28 @@ let plugins = [
       'background'
     ],
     template: 'src/popup/index.html',
+    filename: 'popup.html',
+    minify: {
+      removeComments: production,
+      collapseWhitespace: production,
+      removeRedundantAttributes: production,
+      useShortDoctype: production,
+      removeEmptyAttributes: production,
+      removeStyleLinkTypeAttributes: production,
+      keepClosingSlash: production,
+      minifyJS: production,
+      minifyCSS: production,
+      minifyURLs: production
+    },
+    inject: true
+  }),
+
+  new HtmlWebpackPlugin({
+    excludeChunks: [
+      'popup'
+    ],
+    template: 'src/background/index.html',
+    filename: 'background.html',
     minify: {
       removeComments: production,
       collapseWhitespace: production,
@@ -79,7 +101,7 @@ const config = {
 
   output: {
     path: path.resolve('extension/dist'),
-    filename: 'scripts/[name].js',
+    filename: production ? 'scripts/[name].[hash].js' : 'scripts/[name].js',
     publicPath: '/dist/'
   },
 

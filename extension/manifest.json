@@ -23,7 +23,7 @@
       "96": "images/arma-96-gs.png"
     },
     "default_title": "ArmaTeam",
-    "default_popup": "dist/index.html"
+    "default_popup": "dist/popup.html"
   },
 
   "permissions": [
@@ -32,10 +32,7 @@
   ],
 
   "background": {
-    "scripts": [
-      "/dist/scripts/common.js",
-      "/dist/scripts/background.js"
-    ]
+    "page": "dist/background.html"
   },
 
   "web_accessible_resources": [
