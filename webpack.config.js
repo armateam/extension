@@ -3,7 +3,7 @@ const webpack = require('webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const production = process.env.NODE_ENV === 'production'
@@ -74,7 +74,7 @@ if (production) {
     ...plugins,
 
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
+    new UglifyJsPlugin(),
 
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
