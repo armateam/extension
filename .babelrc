@@ -3,7 +3,8 @@
     ["@babel/preset-env", {
       "useBuiltIns": false,
       "modules": false,
-      "loose": true
+      "loose": true,
+      "shippedProposals": true
     }],
     "@babel/preset-react"
   ],
