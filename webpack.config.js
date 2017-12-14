@@ -100,7 +100,7 @@ const config = {
 
   output: {
     path: path.resolve('extension/dist'),
-    filename: production ? 'scripts/[name].[hash].js' : 'scripts/[name].js',
+    filename: production ? 'scripts/[name].[chunkhash].js' : 'scripts/[name].js',
     publicPath: '/dist/'
   },
 
