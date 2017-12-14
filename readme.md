@@ -46,4 +46,4 @@ Feel free to contribute :)
   ╚═(███)═╝
    ╚═(███)═╝
 ```
-![ICS](https://img.shields.io/badge/licence-ICS-blue.svg)
+![MIT](https://img.shields.io/badge/licence-MIT-blue.svg)
