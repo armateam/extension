@@ -3,7 +3,6 @@ import { createBackgroundStore } from 'redux-webext'
 
 import promiseMiddleware from 'redux-promise-middleware'
 import thunkMiddleware from 'redux-thunk'
-import { createLogger } from 'redux-logger'
 
 import reducer from './reducers'
 
@@ -15,6 +14,8 @@ let middlewares = [
 ]
 
 if (process.env.NODE_ENV !== 'production') {
+  const { createLogger } = require('redux-logger')
+
   middlewares = [
     ...middlewares,
     createLogger()
