@@ -9,7 +9,7 @@
     "dev": "webpack --display-error-details --colors --watch --progress",
     "lint": "eslint src",
     "start": "web-ext run -s extension/",
-    "clean": "rm -rf extension/dist/",
+    "clean": "rm -rf extension/",
     "deploy": "web-ext build -s extension/"
   },
   "author": "Bertrand Marron",
