@@ -4,10 +4,15 @@ defaults:
   workspace_root: &workspace_root
     ~/extension
 
-  container: &default_container
+  nodejs_container: &nodejs_container
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:8-stretch
+
+  golang_container: &golang_container
+    working_directory: *workspace_root
+    docker:
+      - image: circleci/golang:1-stretch
 
   filters: &default_filters
     tags:
@@ -26,7 +31,7 @@ defaults:
 
 jobs:
   checkout:
-    <<: *default_container
+    <<: *nodejs_container
     steps:
       - checkout
 
@@ -36,7 +41,7 @@ jobs:
             - ./
 
   install:
-    <<: *default_container
+    <<: *nodejs_container
     steps:
       - *attach_workspace
       - *restore_node_modules
@@ -64,7 +69,7 @@ jobs:
             - node_modules/
 
   lint:
-    <<: *default_container
+    <<: *nodejs_container
     steps:
       - *attach_workspace
       - *restore_node_modules
@@ -74,7 +79,7 @@ jobs:
           command: yarn lint
 
   build:
-    <<: *default_container
+    <<: *nodejs_container
     steps:
       - *attach_workspace
       - *restore_node_modules
@@ -93,7 +98,7 @@ jobs:
             - extension/
 
   package:
-    <<: *default_container
+    <<: *nodejs_container
     steps:
       - *attach_workspace
       - *restore_node_modules
@@ -107,20 +112,78 @@ jobs:
           paths:
             - web-ext-artifacts/
 
+  changelog:
+    <<: *nodejs_container
+    steps:
+      - *attach_workspace
+      - *restore_node_modules
+
+      - restore_cache:
+          name: Restore changelog cache
+          keys:
+            - v1-armateam-extension-changelog-{{ .BuildNum }}
+            - v1-armateam-extension-changelog-
+
+      - run:
+          name: Generate changelog
+          command: |
+            if [ $CIRCLE_TAG ]; then
+              PREV_TAG=$(git describe --abbrev=0 --tags $CIRCLE_TAG^)
+
+              echo "[+] Running for range $PREV_TAG...$CIRCLE_TAG"
+
+              node_modules/.bin/lerna-changelog --tag-from $PREV_TAG --tag-to $CIRCLE_TAG > CHANGELOG.md
+            else
+              PREV_TAG=$(git describe --abbrev=0 --tags)
+
+              echo "[+] Running from $PREV_TAG"
+
+              node_modules/.bin/lerna-changelog --tag-from $PREV_TAG > CHANGELOG.md
+            fi
+
+      - save_cache:
+          name: Save changelog cache
+          key: v1-armateam-extension-changelog-{{ .BuildNum }}
+          paths:
+            - .changelog/
+
+      - run:
+          name: Display changelog
+          command: cat CHANGELOG.md
+
+      - persist_to_workspace:
+          name: Persist changelog
+          root: *workspace_root
+          paths:
+            - CHANGELOG.md
+
   deploy:
-    working_directory: *workspace_root
-    docker:
-      - image: circleci/golang:latest
+    <<: *golang_container
     steps:
       - *attach_workspace
 
       - run:
-          name: Install ghr
-          command: go get github.com/tcnksm/ghr
+          name: Install github-release
+          command: go get github.com/aktau/github-release
+
+      - deploy:
+          name: Create GitHub release
+          command: |
+            github-release release --user $CIRCLE_PROJECT_USERNAME \
+                                   --repo $CIRCLE_PROJECT_REPONAME \
+                                   --tag $CIRCLE_TAG \
+                                   --description "$(cat CHANGELOG.md)" \
+                                   --name $CIRCLE_TAG
 
       - deploy:
           name: Upload package to GitHub release
-          command: ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace $CIRCLE_TAG web-ext-artifacts/
+          command: |
+            ARTIFACT_NAME=$(ls web-ext-artifacts)
+            github-release upload --user $CIRCLE_PROJECT_USERNAME \
+                                  --repo $CIRCLE_PROJECT_REPONAME \
+                                  --tag $CIRCLE_TAG \
+                                  --name $ARTIFACT_NAME \
+                                  --file web-ext-artifacts/$ARTIFACT_NAME
 
 workflows:
   version: 2
@@ -145,6 +208,11 @@ workflows:
             - install
           filters: *default_filters
 
+      - changelog:
+          requires:
+            - install
+          filters: *default_filters
+
       - package:
           requires:
             - build
@@ -154,6 +222,7 @@ workflows:
           requires:
             - lint
             - package
+            - changelog
           filters:
             <<: *default_filters
             branches:
