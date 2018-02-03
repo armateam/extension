@@ -4,8 +4,6 @@
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
 
-  "version": "1.6.0",
-
   "homepage_url": "https://github.com/armateam/extension",
 
   "default_locale": "fr",
@@ -23,7 +21,7 @@
       "96": "images/arma-96-gs.png"
     },
     "default_title": "ArmaTeam",
-    "default_popup": "dist/popup.html"
+    "default_popup": "popup.html"
   },
 
   "permissions": [
@@ -32,7 +30,7 @@
   ],
 
   "background": {
-    "page": "dist/background.html"
+    "page": "background.html"
   },
 
   "web_accessible_resources": [

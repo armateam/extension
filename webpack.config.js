@@ -4,7 +4,11 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { default: ImageminPlugin } = require('imagemin-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+
+const WebExtManifestPlugin = require('./build/manifest-plugin')
 
 const production = process.env.NODE_ENV === 'production'
 
@@ -66,7 +70,19 @@ let plugins = [
 
   new ExtractTextPlugin({
     filename: 'style/[name].css'
-  })
+  }),
+
+  new CopyWebpackPlugin([{
+    from: 'images',
+    to: 'images'
+  }]),
+
+  new CopyWebpackPlugin([{
+    from: 'src/_locales',
+    to: '_locales'
+  }]),
+
+  new WebExtManifestPlugin()
 ]
 
 if (production) {
@@ -75,6 +91,7 @@ if (production) {
 
     new webpack.optimize.ModuleConcatenationPlugin(),
     new UglifyJsPlugin(),
+    new ImageminPlugin({ test: /\.png$/ }),
 
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
@@ -99,9 +116,8 @@ const config = {
   },
 
   output: {
-    path: path.resolve('extension/dist'),
-    filename: production ? 'scripts/[name].[chunkhash].js' : 'scripts/[name].js',
-    publicPath: '/dist/'
+    path: path.resolve('extension'),
+    filename: production ? 'scripts/[name].[chunkhash].js' : 'scripts/[name].js'
   },
 
   module: {
