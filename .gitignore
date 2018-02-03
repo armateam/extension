@@ -1,5 +1,6 @@
 node_modules/
 
+.changelog/
 reports/
 extension/dist/
 web-ext-artifacts/
