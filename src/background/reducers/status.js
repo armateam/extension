@@ -13,18 +13,10 @@ export default createReducer(initialState, {
     if (data.payload) {
       const status = data.payload.channel.status
 
-      if (status.indexOf('[FR] ') === 0) {
-        return {
-          ...state,
-          original: status,
-          clean: status.substring(5)
-        }
-      }
-
       return {
         ...state,
         original: status,
-        clean: status
+        clean: status.replace(/^\[\s*fr\s*\]\s*/i, '')
       }
     }
 
