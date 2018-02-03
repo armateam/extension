@@ -90,7 +90,7 @@ jobs:
 
       - store_artifacts:
           name: Store dist bundles
-          path: extension/dist/
+          path: extension/
 
       - persist_to_workspace:
           root: *workspace_root
