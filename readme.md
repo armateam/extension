@@ -13,7 +13,7 @@ It can be found on the official stores:
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/khcelbgmdklbglgbedjnnnccjfngpded.svg)](https://chrome.google.com/webstore/detail/armateam/khcelbgmdklbglgbedjnnnccjfngpded)
 [![Mozilla Add-on](https://img.shields.io/amo/v/armateam.svg)](https://addons.mozilla.org/en-US/firefox/addon/armateam/)
-[![Opera Add-on](https://img.shields.io/badge/opera_addon-v1.7.0-blue.svg)](https://addons.opera.com/en/extensions/details/armateam/)
+[![Opera Add-on](https://img.shields.io/badge/opera_add--on-v1.7.0-blue.svg)](https://addons.opera.com/en/extensions/details/armateam/)
 
 
 ## Development
