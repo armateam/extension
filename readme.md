@@ -34,9 +34,11 @@ In order to release a new version, please follow the following guide.
   - Mozilla Firefox: https://addons.mozilla.org/en-US/developers/addon/armateam/edit
   - Opera: https://addons.opera.com/developer/package/228141/
 
-## Contributing
+## License
 
-Feel free to contribute :)
+![MIT](https://img.shields.io/badge/licence-MIT-blue.svg)
+
+## Miscellaneous
 
 ```
     ╚⊙ ⊙╝
@@ -47,4 +49,3 @@ Feel free to contribute :)
   ╚═(███)═╝
    ╚═(███)═╝
 ```
-![MIT](https://img.shields.io/badge/licence-MIT-blue.svg)
