@@ -2,8 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { default: ImageminPlugin } = require('imagemin-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
@@ -30,15 +28,7 @@ let plugins = [
     filename: 'popup.html',
     minify: {
       removeComments: production,
-      collapseWhitespace: production,
-      removeRedundantAttributes: production,
-      useShortDoctype: production,
-      removeEmptyAttributes: production,
-      removeStyleLinkTypeAttributes: production,
-      keepClosingSlash: production,
-      minifyJS: production,
-      minifyCSS: production,
-      minifyURLs: production
+      collapseWhitespace: production
     },
     inject: true
   }),
@@ -51,25 +41,9 @@ let plugins = [
     filename: 'background.html',
     minify: {
       removeComments: production,
-      collapseWhitespace: production,
-      removeRedundantAttributes: production,
-      useShortDoctype: production,
-      removeEmptyAttributes: production,
-      removeStyleLinkTypeAttributes: production,
-      keepClosingSlash: production,
-      minifyJS: production,
-      minifyCSS: production,
-      minifyURLs: production
+      collapseWhitespace: production
     },
     inject: true
-  }),
-
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'common'
-  }),
-
-  new ExtractTextPlugin({
-    filename: 'style/[name].css'
   }),
 
   new CopyWebpackPlugin([{
@@ -89,8 +63,6 @@ if (production) {
   plugins = [
     ...plugins,
 
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new UglifyJsPlugin(),
     new ImageminPlugin({ test: /\.png$/ }),
 
     new BundleAnalyzerPlugin({
@@ -103,6 +75,8 @@ if (production) {
 }
 
 const config = {
+  mode: production ? 'production' : 'development',
+
   entry: {
     popup: [
       'regenerator-runtime/runtime',
@@ -133,18 +107,21 @@ const config = {
     ]
   },
 
-  resolve: {
-    extensions: [
-      '.js',
-      '.jsx'
-    ]
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          name: 'common',
+          chunks: 'initial',
+          minChunks: 2,
+          minSize: 0
+        }
+      }
+    },
+    occurrenceOrder: true
   },
 
   plugins
-}
-
-if (!production) {
-  config.devtool = 'sourcemap'
 }
 
 // ## //

@@ -3,6 +3,10 @@ const { pkg } = require('read-pkg-up').sync()
 
 class WebExtManifestPlugin {
   constructor(options) {
+    this.plugin = {
+      name: 'WebExtManifestPlugin'
+    }
+
     this.options = Object.assign({
       template: 'src/manifest.json',
       filename: 'manifest.json'
@@ -10,11 +14,10 @@ class WebExtManifestPlugin {
   }
 
   apply(compiler) {
-    compiler.plugin('emit', (compilation, done) => {
+    compiler.hooks.emit.tapAsync(this.plugin, (compilation, callback) => {
       readFile(this.options.template, 'utf-8', (err, data) => {
         if (err) {
-          done(err)
-          return
+          return callback(err)
         }
 
         try {
@@ -27,9 +30,9 @@ class WebExtManifestPlugin {
             size: () => json.length
           }
 
-          done()
+          callback()
         } catch (err) {
-          done(err)
+          callback(err)
         }
       })
     })
