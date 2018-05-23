@@ -24,7 +24,6 @@ const Widget = ({label, icon, spin}) => (
         color: white;
         padding: 3px 7px;
         font-size: 11px;
-        border-radius: 10px;
         margin-left: 4px;
 
         & :global(svg) {
