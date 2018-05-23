@@ -19,7 +19,7 @@ export default class Offline extends React.Component {
 
   openLink = url => {
     chrome.tabs.create({
-      url: url
+      url
     })
 
     window.close()

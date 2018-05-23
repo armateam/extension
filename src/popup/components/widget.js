@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 // ## //
 
-const Widget = ({ label, icon, spin }) => (
+const Widget = ({label, icon, spin}) => (
   <div className={spin && 'spin'}>
     {icon}
     {label && <span>{label}</span>}
@@ -48,6 +48,11 @@ Widget.propTypes = {
   icon: PropTypes.node.isRequired,
   label: PropTypes.string,
   spin: PropTypes.bool
+}
+
+Widget.defaultProps = {
+  label: null,
+  spin: false
 }
 
 export default Widget

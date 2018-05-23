@@ -1,6 +1,6 @@
 import Constants from '../../constants'
 
-import config from '../config.json'
+import config from '../config'
 import Twitch from '../twitch'
 
 // ## //
@@ -16,4 +16,4 @@ export function getChannel() {
       promise: twitch.getChannel(config.channel)
     }
   })
-};
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import Online from './online'
 import Offline from './offline'
@@ -15,7 +15,7 @@ class Popup extends React.Component {
     };
 
     render() {
-      const { channel, status } = this.props
+      const {channel, status} = this.props
 
       return channel.channel ? (
         <Online

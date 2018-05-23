@@ -1,6 +1,8 @@
 # ArmaTeam WebExtension  [![CircleCI](https://circleci.com/gh/armateam/extension.svg?style=svg)](https://circleci.com/gh/armateam/extension)
 
-> WebExtension that notifies users of the availability of the ArmaTeam Twitch.tv’s channel.
+WebExtension that notifies users of the availability of the ArmaTeam Twitch.tv’s channel.
+
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 ## Usage
 
