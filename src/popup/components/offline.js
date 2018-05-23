@@ -84,6 +84,7 @@ export default class Offline extends React.Component {
             margin-right: 15px;
             cursor: pointer;
             color: inherit;
+            transition: color 0.1s ease-in-out;
 
             &:hover {
               color: #880d10;

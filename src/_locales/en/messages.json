@@ -32,5 +32,11 @@
   "popupOfflineMessage": {
     "message": "ArmaTeam is offline :(",
     "description": "Message displayed in the popup when the stream is offline"
+  },
+
+
+  "delay": {
+    "message": "Delay",
+    "description": "Displayed when delay is enabled on the stream"
   }
 }
