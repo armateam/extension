@@ -1,5 +1,5 @@
 import Constants from '../../constants'
-import { createReducer } from './utils'
+import {createReducer} from './utils'
 
 // ## //
 

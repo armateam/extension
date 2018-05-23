@@ -1,6 +1,6 @@
 import store from './store'
-import { getChannel } from './actions'
-import { applyBrowserAction, applyNotifications } from './effects'
+import {getChannel} from './actions'
+import {applyBrowserAction, applyNotifications} from './effects'
 
 // ## //
 

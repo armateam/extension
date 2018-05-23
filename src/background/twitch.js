@@ -14,7 +14,7 @@ export default class Twitch {
   async request(path) {
     const res = await fetch(`${this.baseUrl}/${path}`, {
       headers: {
-        'Accept': 'application/vnd.twitchtv.v3+json',
+        Accept: 'application/vnd.twitchtv.v3+json',
         'Client-Id': this.options.clientId
       }
     })

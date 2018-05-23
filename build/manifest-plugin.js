@@ -1,5 +1,5 @@
-const { readFile } = require('fs')
-const { pkg } = require('read-pkg-up').sync()
+const {readFile} = require('fs')
+const {pkg} = require('read-pkg-up').sync()
 
 class WebExtManifestPlugin {
   constructor(options) {

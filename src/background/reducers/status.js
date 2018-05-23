@@ -1,5 +1,5 @@
 import Constants from '../../constants'
-import { createReducer } from './utils'
+import {createReducer} from './utils'
 
 // ## //
 
@@ -11,7 +11,7 @@ const initialState = {
 export default createReducer(initialState, {
   [Constants.GET_CHANNEL_FULFILLED]: (state, data) => {
     if (data.payload) {
-      const status = data.payload.channel.status
+      const {status} = data.payload.channel
 
       return {
         ...state,

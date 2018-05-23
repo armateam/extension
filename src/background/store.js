@@ -1,5 +1,5 @@
-import { createStore, applyMiddleware } from 'redux'
-import { createBackgroundStore } from 'redux-webext'
+import {createStore, applyMiddleware} from 'redux'
+import {createBackgroundStore} from 'redux-webext'
 
 import promiseMiddleware from 'redux-promise-middleware'
 import thunkMiddleware from 'redux-thunk'
@@ -14,7 +14,7 @@ let middlewares = [
 ]
 
 if (process.env.NODE_ENV !== 'production') {
-  const { createLogger } = require('redux-logger')
+  const {createLogger} = require('redux-logger')
 
   middlewares = [
     ...middlewares,

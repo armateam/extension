@@ -7,7 +7,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --display-error-details --colors",
     "dev": "webpack --display-error-details --colors --watch --progress",
-    "lint": "eslint src",
+    "lint": "xo",
     "start": "web-ext run -s extension/",
     "clean": "rm -rf extension/",
     "deploy": "web-ext build -s extension/"
@@ -37,17 +37,12 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
     "@babel/preset-env": "^7.0.0-beta.44",
     "@babel/preset-react": "^7.0.0-beta.44",
-    "babel-eslint": "^8.2.2",
+    "babel-eslint": "^8.2.3",
     "babel-loader": "8.0.0-beta.3",
     "copy-webpack-plugin": "^4.5.1",
     "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
-    "eslint-plugin-import": "^2.10.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-standard": "^3.0.1",
+    "eslint-config-xo-nextjs": "^1.3.0",
+    "eslint-plugin-react": "^7.8.2",
     "html-webpack-plugin": "^3.2.0",
     "imagemin-webpack-plugin": "^2.1.1",
     "lerna-changelog": "^0.7.0",
@@ -59,7 +54,8 @@
     "web-ext": "^2.6.0",
     "webpack": "^4.5.0",
     "webpack-bundle-analyzer": "^2.11.1",
-    "webpack-cli": "^2.0.14"
+    "webpack-cli": "^2.0.14",
+    "xo": "^0.21.1"
   },
   "repository": "https://github.com/armateam/extension",
   "changelog": {
@@ -76,5 +72,17 @@
       "documentation": ":memo: Documentation"
     },
     "cacheDir": ".changelog"
+  },
+  "xo": {
+    "extends": "xo-nextjs",
+    "semicolon": false,
+    "space": 2,
+    "envs": [
+      "browser",
+      "webextensions"
+    ],
+    "rules": {
+      "camelcase": "warn"
+    }
   }
 }

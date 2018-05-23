@@ -18,14 +18,14 @@ export default class Online extends React.Component {
 
     openChannel = url => {
       chrome.tabs.create({
-        url: url
+        url
       })
 
       window.close()
     }
 
     render() {
-      const { channel, refreshing, status } = this.props
+      const {channel, refreshing, status} = this.props
 
       return (
         <main>

@@ -3,8 +3,8 @@ const webpack = require('webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { default: ImageminPlugin } = require('imagemin-webpack-plugin')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const {default: ImageminPlugin} = require('imagemin-webpack-plugin')
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 
 const WebExtManifestPlugin = require('./build/manifest-plugin')
 
@@ -63,7 +63,7 @@ if (production) {
   plugins = [
     ...plugins,
 
-    new ImageminPlugin({ test: /\.png$/ }),
+    new ImageminPlugin({test: /\.png$/}),
 
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
