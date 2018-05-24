@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 // ## //
 
-const Widget = ({label, icon, spin}) => (
+const Widget = ({children, icon, spin}) => (
   <div className={spin && 'spin'}>
     {icon}
-    {label && <span>{label}</span>}
+    {children && <span>{children}</span>}
 
     <style jsx>{`
       @keyframes icon-spin {
@@ -44,13 +44,13 @@ const Widget = ({label, icon, spin}) => (
 )
 
 Widget.propTypes = {
+  children: PropTypes.node,
   icon: PropTypes.node.isRequired,
-  label: PropTypes.string,
   spin: PropTypes.bool
 }
 
 Widget.defaultProps = {
-  label: null,
+  children: null,
   spin: false
 }
 

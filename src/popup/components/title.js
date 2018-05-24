@@ -10,7 +10,7 @@ const Title = ({children}) => (
     <style jsx>{`
       div {
         display: inline-block;
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 0.96);
         color: black;
         font-weight: 500;
         padding: 3px 7px 3px 6px;
