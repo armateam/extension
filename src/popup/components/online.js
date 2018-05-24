@@ -26,21 +26,13 @@ export default class Online extends React.Component {
       window.close()
     }
 
-    generatePreviewUrl = (width, height) => {
-      const {channel} = this.props
-
-      return channel.preview.template
-        .replace('{width}', width)
-        .replace('{height}', height) + `?${channel.channel.updated_at}`
-    }
-
     render() {
       const {channel, refreshing, status} = this.props
 
       return (
         <main>
           <a onClick={() => this.openChannel(channel.channel.url)}>
-            <img alt='' src={this.generatePreviewUrl(400, 225)} />
+            <img alt='' src={channel.preview.large} />
             <div className='top'>
               <Title>{status}</Title>
             </div>
@@ -49,10 +41,16 @@ export default class Online extends React.Component {
             </div>
             <div className='right'>
               {channel.delay > 0 && (
-                <Widget icon={<DelayIcon />} label={chrome.i18n.getMessage('delay')} />
+                <Widget icon={<DelayIcon />}>
+                  {chrome.i18n.getMessage('delay')}
+                </Widget>
               )}
-              <Widget icon={<DesktopIcon />} label={`${channel.video_height}p`} />
-              <Widget icon={<UserIcon />} label={channel.viewers.toLocaleString()} />
+              <Widget icon={<DesktopIcon />}>
+                {channel.video_height}p
+              </Widget>
+              <Widget icon={<UserIcon />}>
+                {channel.viewers.toLocaleString()}
+              </Widget>
             </div>
           </a>
 
@@ -63,6 +61,7 @@ export default class Online extends React.Component {
               right: 0;
               top: 0;
               bottom: 0;
+              background-color: #880d10;
             }
 
             h1 {
@@ -79,6 +78,8 @@ export default class Online extends React.Component {
             img {
               opacity: 0.95;
               transition: opacity 0.1s ease-in-out;
+              width: 400px;
+              height: 225px;
             }
 
             a {
@@ -103,21 +104,21 @@ export default class Online extends React.Component {
 
             .top {
               position: absolute;
-              top: 4px;
-              left: 4px;
-              right: 4px;
+              top: 5px;
+              left: 5px;
+              right: 5px;
             }
 
             .left {
               position: absolute;
               bottom: 4px;
-              left: 4px;
+              left: 5px;
             }
 
             .right {
               position: absolute;
               bottom: 4px;
-              right: 4px;
+              right: 5px;
             }
           `}</style>
         </main>
