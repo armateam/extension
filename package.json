@@ -47,7 +47,7 @@
     "imagemin-webpack-plugin": "^2.1.5",
     "lerna-changelog": "^0.7.0",
     "node-sass": "^4.9.0",
-    "read-pkg-up": "^3.0.0",
+    "read-pkg-up": "^4.0.0",
     "redux-logger": "^3.0.6",
     "styled-jsx": "^2.2.6",
     "styled-jsx-plugin-sass": "^0.2.4",
