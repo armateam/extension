@@ -2,7 +2,7 @@
 
 WebExtension that notifies users of the availability of the ArmaTeam Twitch.tv’s channel.
 
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![XO code style](https://badgen.net/badge/code%20style/XO/cyan)](https://github.com/xojs/xo)
 
 ## Usage
 
@@ -13,9 +13,9 @@ It can be found on the official stores:
 - Mozilla Firefox: https://addons.mozilla.org/en-US/firefox/addon/armateam/
 - Opera: https://addons.opera.com/extensions/details/armateam/
 
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/khcelbgmdklbglgbedjnnnccjfngpded.svg)](https://chrome.google.com/webstore/detail/armateam/khcelbgmdklbglgbedjnnnccjfngpded)
-[![Mozilla Add-on](https://img.shields.io/amo/v/armateam.svg)](https://addons.mozilla.org/en-US/firefox/addon/armateam/)
-[![Opera Add-on](https://img.shields.io/badge/opera_add--on-v1.7.0-blue.svg)](https://addons.opera.com/en/extensions/details/armateam/)
+[![Chrome Web Store](https://badgen.net/chrome-web-store/v/khcelbgmdklbglgbedjnnnccjfngpded)](https://chrome.google.com/webstore/detail/armateam/khcelbgmdklbglgbedjnnnccjfngpded)
+[![Mozilla Add-on](https://badgen.net/amo/v/armateam)](https://addons.mozilla.org/en-US/firefox/addon/armateam/)
+[![Opera Add-on](https://badgen.net/badge/opera%20add-on/v1.8.0/blue)](https://addons.opera.com/en/extensions/details/armateam/)
 
 
 ## Development
