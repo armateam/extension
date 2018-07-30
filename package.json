@@ -39,7 +39,7 @@
     "@babel/preset-react": "^7.0.0-beta.54",
     "babel-eslint": "^8.2.6",
     "babel-loader": "8.0.0-beta.3",
-    "copy-webpack-plugin": "^4.5.1",
+    "copy-webpack-plugin": "^4.5.2",
     "eslint": "^5.2.0",
     "eslint-config-xo-nextjs": "^1.3.0",
     "eslint-plugin-react": "^7.8.2",
