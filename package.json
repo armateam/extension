@@ -49,7 +49,7 @@
     "node-sass": "^4.9.2",
     "read-pkg-up": "^4.0.0",
     "redux-logger": "^3.0.6",
-    "styled-jsx": "^2.2.6",
+    "styled-jsx": "^3.0.2",
     "styled-jsx-plugin-sass": "^0.2.4",
     "web-ext": "^2.8.0",
     "webpack": "^4.16.5",
