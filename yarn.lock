@@ -202,10 +202,6 @@
   dependencies:
     "@babel/types" "7.0.0-beta.56"
 
-"@babel/helper-plugin-utils@7.0.0-beta.47":
-  version "7.0.0-beta.47"
-  resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.0.0-beta.47.tgz#4f564117ec39f96cf60fafcde35c9ddce0e008fd"
-
 "@babel/helper-plugin-utils@7.0.0-beta.54":
   version "7.0.0-beta.54"
   resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.0.0-beta.54.tgz#61d2a9a0f9a3e31838a458debb9eebd7bdd249b4"
@@ -346,19 +342,12 @@
     "@babel/helper-replace-supers" "7.0.0-beta.54"
     "@babel/plugin-syntax-class-properties" "7.0.0-beta.54"
 
-"@babel/plugin-proposal-object-rest-spread@7.0.0-beta.56":
+"@babel/plugin-proposal-object-rest-spread@7.0.0-beta.56", "@babel/plugin-proposal-object-rest-spread@^7.0.0-beta.56":
   version "7.0.0-beta.56"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.0.0-beta.56.tgz#5a8b8c89e94155d766baacdf8e50ea7dead96741"
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.56"
     "@babel/plugin-syntax-object-rest-spread" "7.0.0-beta.56"
-
-"@babel/plugin-proposal-object-rest-spread@^7.0.0-beta.47":
-  version "7.0.0-beta.47"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.0.0-beta.47.tgz#e1529fddc88e948868ee1d0edaa27ebd9502322d"
-  dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.47"
-    "@babel/plugin-syntax-object-rest-spread" "7.0.0-beta.47"
 
 "@babel/plugin-proposal-optional-catch-binding@7.0.0-beta.56":
   version "7.0.0-beta.56"
@@ -392,12 +381,6 @@
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.0.0-beta.55.tgz#3c16cc972b31c27d4c2e6388e834f146463263a4"
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.55"
-
-"@babel/plugin-syntax-object-rest-spread@7.0.0-beta.47":
-  version "7.0.0-beta.47"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-object-rest-spread/-/plugin-syntax-object-rest-spread-7.0.0-beta.47.tgz#21da514d94c138b2261ca09f0dec9abadce16185"
-  dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.47"
 
 "@babel/plugin-syntax-object-rest-spread@7.0.0-beta.56":
   version "7.0.0-beta.56"
