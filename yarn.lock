@@ -66,11 +66,11 @@
     "@babel/helper-explode-assignable-expression" "7.0.0-beta.56"
     "@babel/types" "7.0.0-beta.56"
 
-"@babel/helper-builder-react-jsx@7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/helper-builder-react-jsx/-/helper-builder-react-jsx-7.0.0-beta.56.tgz#4e3e3be02f006a89452a2e4541e1db53468c763e"
+"@babel/helper-builder-react-jsx@7.0.0-rc.1":
+  version "7.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@babel/helper-builder-react-jsx/-/helper-builder-react-jsx-7.0.0-rc.1.tgz#d6fdf43cf671e50b3667431007732136cb059a5f"
   dependencies:
-    "@babel/types" "7.0.0-beta.56"
+    "@babel/types" "7.0.0-rc.1"
     esutils "^2.0.0"
 
 "@babel/helper-call-delegate@7.0.0-beta.56":
@@ -310,11 +310,11 @@
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.56"
 
-"@babel/plugin-syntax-jsx@7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.0.0-beta.56.tgz#d018279f6fc3cae489f72022fa449c568d913681"
+"@babel/plugin-syntax-jsx@7.0.0-rc.1":
+  version "7.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.0.0-rc.1.tgz#f7d19fa482f6bf42225c4b3d8f14e825e3fa325a"
   dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.56"
+    "@babel/helper-plugin-utils" "7.0.0-rc.1"
 
 "@babel/plugin-syntax-object-rest-spread@7.0.0-beta.56":
   version "7.0.0-beta.56"
@@ -476,33 +476,33 @@
     "@babel/helper-get-function-arity" "7.0.0-beta.56"
     "@babel/helper-plugin-utils" "7.0.0-beta.56"
 
-"@babel/plugin-transform-react-display-name@7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-display-name/-/plugin-transform-react-display-name-7.0.0-beta.56.tgz#fc833da81d558d43fda061a1e3e833600555380c"
+"@babel/plugin-transform-react-display-name@7.0.0-rc.1":
+  version "7.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-display-name/-/plugin-transform-react-display-name-7.0.0-rc.1.tgz#ffc71260d7920e49be54b7ad301a8af40f780c15"
   dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.56"
+    "@babel/helper-plugin-utils" "7.0.0-rc.1"
 
-"@babel/plugin-transform-react-jsx-self@7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-self/-/plugin-transform-react-jsx-self-7.0.0-beta.56.tgz#739a1eec00954e066e382b2a0670abc48957b8c9"
+"@babel/plugin-transform-react-jsx-self@7.0.0-rc.1":
+  version "7.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-self/-/plugin-transform-react-jsx-self-7.0.0-rc.1.tgz#45557ef5662e4f59aedb0910b2bdfbe45769a4a7"
   dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.56"
-    "@babel/plugin-syntax-jsx" "7.0.0-beta.56"
+    "@babel/helper-plugin-utils" "7.0.0-rc.1"
+    "@babel/plugin-syntax-jsx" "7.0.0-rc.1"
 
-"@babel/plugin-transform-react-jsx-source@7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-source/-/plugin-transform-react-jsx-source-7.0.0-beta.56.tgz#fca2cbf49dad9d44188d804905223ab3fddfa9d5"
+"@babel/plugin-transform-react-jsx-source@7.0.0-rc.1":
+  version "7.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-source/-/plugin-transform-react-jsx-source-7.0.0-rc.1.tgz#48cc2e0a09f1db49c8d9a960ce2dc3a988ae7013"
   dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.56"
-    "@babel/plugin-syntax-jsx" "7.0.0-beta.56"
+    "@babel/helper-plugin-utils" "7.0.0-rc.1"
+    "@babel/plugin-syntax-jsx" "7.0.0-rc.1"
 
-"@babel/plugin-transform-react-jsx@7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.0.0-beta.56.tgz#d1d92fa3ff51670f4174660fe7a649c7e4067338"
+"@babel/plugin-transform-react-jsx@7.0.0-rc.1":
+  version "7.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.0.0-rc.1.tgz#d2eb176ca2b7fa212b56f8fd4052a404fddc2a99"
   dependencies:
-    "@babel/helper-builder-react-jsx" "7.0.0-beta.56"
-    "@babel/helper-plugin-utils" "7.0.0-beta.56"
-    "@babel/plugin-syntax-jsx" "7.0.0-beta.56"
+    "@babel/helper-builder-react-jsx" "7.0.0-rc.1"
+    "@babel/helper-plugin-utils" "7.0.0-rc.1"
+    "@babel/plugin-syntax-jsx" "7.0.0-rc.1"
 
 "@babel/plugin-transform-regenerator@7.0.0-beta.56":
   version "7.0.0-beta.56"
@@ -595,15 +595,15 @@
     js-levenshtein "^1.1.3"
     semver "^5.3.0"
 
-"@babel/preset-react@^7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.0.0-beta.56.tgz#1c0914d968f3ff4d11bf91fd86857b965c528bb3"
+"@babel/preset-react@^7.0.0-rc.1":
+  version "7.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.0.0-rc.1.tgz#8d51eb0861627fd913ac645dbdd5dc424fcc7445"
   dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.56"
-    "@babel/plugin-transform-react-display-name" "7.0.0-beta.56"
-    "@babel/plugin-transform-react-jsx" "7.0.0-beta.56"
-    "@babel/plugin-transform-react-jsx-self" "7.0.0-beta.56"
-    "@babel/plugin-transform-react-jsx-source" "7.0.0-beta.56"
+    "@babel/helper-plugin-utils" "7.0.0-rc.1"
+    "@babel/plugin-transform-react-display-name" "7.0.0-rc.1"
+    "@babel/plugin-transform-react-jsx" "7.0.0-rc.1"
+    "@babel/plugin-transform-react-jsx-self" "7.0.0-rc.1"
+    "@babel/plugin-transform-react-jsx-source" "7.0.0-rc.1"
 
 "@babel/template@7.0.0-beta.44":
   version "7.0.0-beta.44"
@@ -663,6 +663,14 @@
 "@babel/types@7.0.0-beta.56":
   version "7.0.0-beta.56"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.0.0-beta.56.tgz#df456947a82510ec30361971e566110d89489056"
+  dependencies:
+    esutils "^2.0.2"
+    lodash "^4.17.10"
+    to-fast-properties "^2.0.0"
+
+"@babel/types@7.0.0-rc.1":
+  version "7.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.0.0-rc.1.tgz#6abf6d14ddd9fc022617e5b62e6b32f4fa6526ad"
   dependencies:
     esutils "^2.0.2"
     lodash "^4.17.10"
