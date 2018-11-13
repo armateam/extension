@@ -160,12 +160,6 @@
   dependencies:
     "@babel/types" "^7.0.0"
 
-"@babel/helper-member-expression-to-functions@7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.0.0-beta.56.tgz#f7d8d673e140c1bf051abf9661652788ae37b1b4"
-  dependencies:
-    "@babel/types" "7.0.0-beta.56"
-
 "@babel/helper-member-expression-to-functions@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.0.0.tgz#8cd14b0a0df7ff00f009e7d7a436945f47c7a16f"
@@ -188,12 +182,6 @@
     "@babel/template" "^7.1.0"
     "@babel/types" "^7.0.0"
     lodash "^4.17.10"
-
-"@babel/helper-optimise-call-expression@7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/helper-optimise-call-expression/-/helper-optimise-call-expression-7.0.0-beta.56.tgz#e9814da0d175ca39901f2d895d6dfef658fe8953"
-  dependencies:
-    "@babel/types" "7.0.0-beta.56"
 
 "@babel/helper-optimise-call-expression@^7.0.0":
   version "7.0.0"
@@ -228,15 +216,6 @@
     "@babel/template" "^7.1.0"
     "@babel/traverse" "^7.1.0"
     "@babel/types" "^7.0.0"
-
-"@babel/helper-replace-supers@7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/helper-replace-supers/-/helper-replace-supers-7.0.0-beta.56.tgz#52f25c16b3dee1f4e8cd96eb4d1d7f9af9db18d8"
-  dependencies:
-    "@babel/helper-member-expression-to-functions" "7.0.0-beta.56"
-    "@babel/helper-optimise-call-expression" "7.0.0-beta.56"
-    "@babel/traverse" "7.0.0-beta.56"
-    "@babel/types" "7.0.0-beta.56"
 
 "@babel/helper-replace-supers@^7.1.0":
   version "7.1.0"
@@ -329,16 +308,16 @@
     "@babel/helper-remap-async-to-generator" "^7.1.0"
     "@babel/plugin-syntax-async-generators" "^7.0.0"
 
-"@babel/plugin-proposal-class-properties@^7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.0.0-beta.56.tgz#cfa5adf4aef4480ef3de3e8896f1524804cdf3d0"
+"@babel/plugin-proposal-class-properties@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.1.0.tgz#9af01856b1241db60ec8838d84691aa0bd1e8df4"
   dependencies:
-    "@babel/helper-function-name" "7.0.0-beta.56"
-    "@babel/helper-member-expression-to-functions" "7.0.0-beta.56"
-    "@babel/helper-optimise-call-expression" "7.0.0-beta.56"
-    "@babel/helper-plugin-utils" "7.0.0-beta.56"
-    "@babel/helper-replace-supers" "7.0.0-beta.56"
-    "@babel/plugin-syntax-class-properties" "7.0.0-beta.56"
+    "@babel/helper-function-name" "^7.1.0"
+    "@babel/helper-member-expression-to-functions" "^7.0.0"
+    "@babel/helper-optimise-call-expression" "^7.0.0"
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/helper-replace-supers" "^7.1.0"
+    "@babel/plugin-syntax-class-properties" "^7.0.0"
 
 "@babel/plugin-proposal-json-strings@^7.0.0":
   version "7.0.0"
@@ -382,11 +361,11 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-syntax-class-properties@7.0.0-beta.56":
-  version "7.0.0-beta.56"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-class-properties/-/plugin-syntax-class-properties-7.0.0-beta.56.tgz#ab0cfbb1aa681810fb109e73ae125d3682837c33"
+"@babel/plugin-syntax-class-properties@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-class-properties/-/plugin-syntax-class-properties-7.0.0.tgz#e051af5d300cbfbcec4a7476e37a803489881634"
   dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.56"
+    "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-syntax-json-strings@^7.0.0":
   version "7.0.0"
