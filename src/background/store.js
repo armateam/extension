@@ -1,16 +1,16 @@
 import {createStore, applyMiddleware} from 'redux'
 import {createBackgroundStore} from 'redux-webext'
 
-import promiseMiddleware from 'redux-promise-middleware'
-import thunkMiddleware from 'redux-thunk'
+import promise from 'redux-promise-middleware'
+import thunk from 'redux-thunk'
 
 import reducer from './reducers'
 
 // ## //
 
 let middlewares = [
-  thunkMiddleware,
-  promiseMiddleware()
+  promise,
+  thunk
 ]
 
 if (process.env.NODE_ENV !== 'production') {

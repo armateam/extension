@@ -1,30 +1,30 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-import {connect} from 'react-redux'
+import React, {useCallback} from 'react'
+import {useMappedState} from 'redux-react-hook'
 
 import Online from './online'
 import Offline from './offline'
 
-// ## //
+function Popup() {
+  const mapState = useCallback(
+    state => ({
+      channel: state.channel.channel,
+      refreshing: state.channel.isFetching,
+      status: state.status.clean
+    }),
+    []
+  )
 
-class Popup extends React.Component {
-    static propTypes = {
-      channel: PropTypes.object.isRequired,
-      status: PropTypes.object.isRequired
-    };
+  const {channel, refreshing, status} = useMappedState(mapState)
 
-    render() {
-      const {channel, status} = this.props
-
-      return channel.channel ? (
-        <Online
-          channel={channel.channel}
-          refreshing={channel.isFetching}
-          status={status.clean}
-        />
-      ) : <Offline />
-    }
+  return channel ? (
+    <Online
+      channel={channel}
+      refreshing={refreshing}
+      status={status}
+    />
+  ) : (
+    <Offline />
+  )
 }
 
-export default connect(state => state)(Popup)
+export default Popup
