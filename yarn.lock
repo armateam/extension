@@ -8318,9 +8318,9 @@ redux-logger@^3.0.6:
   dependencies:
     deep-diff "^0.3.5"
 
-redux-promise-middleware@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/redux-promise-middleware/-/redux-promise-middleware-6.0.0.tgz#8ecc4a26a6a9e5f66d2e1482566d224a6036d74d"
+redux-promise-middleware@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/redux-promise-middleware/-/redux-promise-middleware-6.0.1.tgz#122483f55fd20622155c7fb2116a764bac17a2d3"
 
 redux-thunk@^2.3.0:
   version "2.3.0"
