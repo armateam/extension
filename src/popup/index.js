@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import {Provider} from 'react-redux'
+import {StoreContext} from 'redux-react-hook'
 import {createUIStore} from 'redux-webext'
 
 import Popup from './components/popup'
@@ -12,10 +12,10 @@ async function init() {
   const store = await createUIStore()
 
   ReactDOM.render(
-    <Provider store={store}>
+    <StoreContext.Provider value={store}>
       <Popup />
-    </Provider>,
-    document.getElementById('app')
+    </StoreContext.Provider>,
+    document.querySelector('#app')
   )
 }
 

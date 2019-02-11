@@ -31,8 +31,8 @@ class WebExtManifestPlugin {
           }
 
           callback()
-        } catch (err) {
-          callback(err)
+        } catch (error) {
+          callback(error)
         }
       })
     })
