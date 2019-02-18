@@ -54,7 +54,7 @@
     "styled-jsx": "^3.2.1",
     "styled-jsx-plugin-sass": "^1.0.0",
     "web-ext": "^2.9.3",
-    "webpack": "^4.29.3",
+    "webpack": "^4.29.4",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.2.3",
     "xo": "^0.24.0"
