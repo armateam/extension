@@ -8210,10 +8210,10 @@ redux-promise-middleware@^6.1.0:
   resolved "https://registry.yarnpkg.com/redux-promise-middleware/-/redux-promise-middleware-6.1.0.tgz#ecdb22488cdd673c1a3f0d278d82b48d92ca5d06"
   integrity sha512-C62Ku3TgMwxFh5r3h1/iD+XPdsoizyHLT74dTkqhJ8c0LCbEVl1z9fm8zKitAjI16e6w6+h3mxf6wHdonaYXfQ==
 
-redux-react-hook@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/redux-react-hook/-/redux-react-hook-3.2.1.tgz#41bc93bc09ebbe9e914aa0fa186a128fd3e8d0fb"
-  integrity sha512-xTXhFajTVeomc6GwTsTvUKMtv58511MY02bPSbKZGOuSO9+c3cW7lDybHlkwLU90kryX0cC+Vk/ukgJC4dXOPQ==
+redux-react-hook@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/redux-react-hook/-/redux-react-hook-3.3.0.tgz#27ebf7f7f9030d5633cd876a7a551c27413b68c0"
+  integrity sha512-HibIOp8NetEB4ECKMlC54L5BRcRy1J8hxbv8R9TeX0/VgBcHL4BEodgmUVn3ScVbdKisBIsF+sITGyHDEb9otg==
 
 redux-thunk@^2.3.0:
   version "2.3.0"
