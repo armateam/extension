@@ -56,7 +56,7 @@
     "web-ext": "^3.0.0",
     "webpack": "^4.33.0",
     "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-cli": "^3.3.2",
+    "webpack-cli": "^3.3.3",
     "xo": "^0.24.0"
   },
   "repository": "https://github.com/armateam/extension",
