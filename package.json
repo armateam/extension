@@ -53,7 +53,7 @@
     "redux-logger": "^3.0.6",
     "styled-jsx": "^3.2.1",
     "styled-jsx-plugin-sass": "^1.0.0",
-    "web-ext": "^3.1.0",
+    "web-ext": "^3.1.1",
     "webpack": "^4.38.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.6",
