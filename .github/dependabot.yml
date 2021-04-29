@@ -1,0 +1,33 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "07:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: react-icons
+    versions:
+    - "> 2.2.7"
+  - dependency-name: web-ext
+    versions:
+    - 5.5.0
+    - 6.0.0
+  - dependency-name: xo
+    versions:
+    - 0.37.1
+    - 0.38.1
+    - 0.38.2
+  - dependency-name: redux
+    versions:
+    - 4.0.5
+  - dependency-name: html-webpack-plugin
+    versions:
+    - 4.5.1
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
+  - dependency-name: read-pkg-up
+    versions:
+    - 7.0.1
